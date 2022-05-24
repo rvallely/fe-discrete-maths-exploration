@@ -15,11 +15,11 @@ function Nav() {
                 </div>
 
                 <div className='offcanvas-body'>
-                    <a href='' target='_blank' className='m-1 text-decoration-none' style={{color: 'black'}}>Link1</a>
-                    <br></br>
-                    <a href='' target='_blank' className='m-1 text-decoration-none' style={{color: 'black'}}>Link2</a>
+                    <Link to='/' className='m-1 text-decoration-none' style={{color: 'black'}}>Home</Link>
                     <br></br>
                     <Link to='/base-converter' className='m-1 text-decoration-none' style={{color: 'black'}}>Base converter</Link>
+                    <br></br>
+                    <Link to='/something-else' className='m-1 text-decoration-none' style={{color: 'black'}}>Something else</Link>
                 </div>
             </div>
         </div>

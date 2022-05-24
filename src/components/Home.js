@@ -2,9 +2,9 @@ import Header from './Header';
 
 const Home = () => {
     return (
-        <div>
+        <div className='home-screen'>
             <Header />
-            <p>Welcome to Discrete Maths exploration. Explore the Nav for options.</p>
+            <p>Welcome, go to the Nav for options.</p>
         </div>
     ) 
 }

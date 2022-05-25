@@ -40,6 +40,7 @@ function BaseConverter() {
                             <div className='mb-4 input-group'>
                                 <span className='input-group-text'>🚘</span>
                                 <input type='text' className='form-control' id='start-value' placeholder='eg. 10' onChange={(e) => setValue(e.target.value)}></input>
+                                
                             </div>
 
                             <label htmlFor='from-base' className='form-label'>From base:</label>
@@ -63,6 +64,9 @@ function BaseConverter() {
                             <div className='mb-4 input-group'>
                                 <span className='input-group-text'>🚖</span>
                                 <input disabled={true} type='text' className='form-control' id='end-value' value={result}></input>
+                                <span className='input-group-text'>
+                                <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(result)} style={{'cursor': 'pointer'}}></i>
+                                </span>
                             </div>
                            
                             

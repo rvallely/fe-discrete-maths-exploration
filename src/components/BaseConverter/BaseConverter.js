@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { getBaseConversion } from '../../utils/server';
-import Result from './Result';
-
 
 function BaseConverter() {
     const [value, setValue] = useState('');
@@ -12,16 +10,17 @@ function BaseConverter() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(value, '<< value', fromBase, '<< fromBase', toBase, '<<< toBase')
+        setError('');
         getBaseConversion(value, fromBase, toBase).then((result) => { 
             setResult(result);
-            console.log(e);
-            console.log(e.target);
-            e.target.reset();
         }).catch((err) => {
-            console.log(err.response.data.msg)
-            setError(err);
+            setError(err.response.data.msg);
         });
+    }
+
+    const resetForm = () => {
+        document.getElementById('base-converter').reset();
+        setResult('');
     }
 
     return (  
@@ -32,10 +31,11 @@ function BaseConverter() {
                     <h2>Base Converter</h2>
                     <p className='lead'>Enter your parameters below and press calculate.</p>
                 </div>
+                <p className='text-danger text-center'>{error}</p>
 
-                <div className='row justify-content-center my-5'>
+                <div className='row justify-content-center my-3'>
                     <div className='col-lg-6'>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} id='base-converter'>
                             <label htmlFor='start-value' className='form-label'>Start value:</label>
                             <div className='mb-4 input-group'>
                                 <span className='input-group-text'>🚘</span>
@@ -59,23 +59,22 @@ function BaseConverter() {
                                     Calculate
                                 </button>
                             </div>
+                            <label htmlFor='end-value' className='form-label'>End value:</label>
+                            <div className='mb-4 input-group'>
+                                <span className='input-group-text'>🚖</span>
+                                <input disabled={true} type='text' className='form-control' id='end-value' value={result}></input>
+                            </div>
+                           
+                            
                         </form>
+                        <div className='mt-4 mb-0 text-center'>
+                        <button onClick={resetForm} className='btn btn-secondary text-center'>Reset</button>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </section>
-        <Result result={{result, setResult}}/>
         </div>
-    )
-
-    // if result is blank -- load blank form
-
-    // form 
-    // calculate button
-    // functionality - contact backend
-    // result
-    // display dynamic calculation ∑  if time
-    
-}
-
-export default BaseConverter;
+    )}
+ export default BaseConverter;

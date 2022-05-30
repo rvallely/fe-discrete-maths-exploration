@@ -1,6 +1,5 @@
 import { useSearchParams, useLocation } from "react-router-dom"
 
-
 function ShowCalculation() {
     const [searchParams, setSearchParams] = useSearchParams();
     const startVal = searchParams.get('startVal')
@@ -8,41 +7,33 @@ function ShowCalculation() {
     const toBase = searchParams.get('toBase')
     const result = searchParams.get('result')
     let decimal = 0;
-    console.log(startVal, fromBase, toBase, result);
     const location = useLocation();
-    console.log('location >>', location.state.calcs)
-    const calcs = location.state.calcs;
-
 
     return ( 
-        <div>
-            <h1 className='text-center'>Converting between bases</h1>
-            <div className='container py-2 border'>
-                <h1 className='text-center'>Converting to Decimal</h1>
+        <div className='text-center'>
+            <h1 className='text-center text-decoration-underline'>Step 1</h1>
+            <div className='container border border-dark p-1 m-1'>
+                <h3 className='text-center'>Converting to a Decimal Number</h3>
                 <div className='row'>
-                    <div className='col text-center p'>(n-1)</div>
+                    <div className='col text-center p'>({startVal.length}-1)</div>
                 </div>
                 <div className='row'>
                     <div className='col '></div>
                     <div className='col'></div>
                     <div className='col-1 text-center p-0'><h1><strong>∑</strong></h1></div>
-                    <div className='col m-1 p-0'>d<sub> i</sub> * b &#8305;</div>
+                    <div className='col m-1 p-0'>d<sub> i</sub> * {fromBase} &#8305;</div>
                     <div className='col'></div>
                 </div>
                 <div className='row'>
                     <div className='col text-center'>i=0</div>
                 </div>
-            </div>
-            <div className='calc border border-danger'>
-                <p className='border border-primary'>{startVal}<sub>{fromBase}</sub> = {result}<sub>{toBase}</sub></p>
-            
-                <div id='to-dec-calc' className='border border-success'>
+                <div id='to-dec-calc' className='text-start ms-2 mt-2 mb-2'>
                     <div style={{
                         display: 'flex', 
                         flexDirection: 'row',
                         overflow: 'auto', 
                         maxWidth: '100%',
-                        'white-space': 'nowrap',
+                        whiteSpace: 'nowrap',
                         }}>
                         {startVal.split('').reverse().map((d, i) => {
                             if (d.charCodeAt(0) > 64 && d.charCodeAt(0) <= 90) {
@@ -69,27 +60,30 @@ function ShowCalculation() {
                         })}
                     </div>
                     <p>= {decimal}</p>
-           
-                    <div>map = decimal / toBase = quotient | remainder</div>
-                    <p>{decimal}</p>
-                    <h1>Converting from a decimal</h1>
-                    <table className='table table-bordered'>
-                        <thead>
-                            <tr>
-                                <th>Quotient</th>
-                                <th>Remainder</th>
+                </div>    
+                <p>{startVal}<sub>{fromBase}</sub> = {decimal}<sub>{10}</sub></p>
+            </div>
+
+            <h1 className='text-decoration-underline'>Step 2</h1>
+            <div className='border border-dark p-1 m-1'>
+                <h3>Converting from a Decimal Number</h3>
+                <table className='table table-bordered'>
+                    <thead>
+                        <tr>
+                            <th>Quotient</th>
+                            <th>Remainder</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {location.state.calcs.map((calc) => (
+                            <tr key={calc._id}>
+                                <td>{calc.val} / {calc.toBase} = {calc.newVal}</td>
+                                <td>{calc.remainder}</td> 
                             </tr>
-                        </thead>
-                        <tbody>
-                            {location.state.calcs.map((calc) => (
-                                <tr key={calc._id}>
-                                    <td>{calc.val} / {calc.toBase} = {calc.newVal}</td>
-                                    <td>{calc.remainder}</td> 
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                        ))}
+                    </tbody>
+                 </table>
+                <p>{decimal}<sub>{10}</sub> = {result}<sub>{toBase}</sub></p>
             </div>
         </div>
     );

@@ -72,7 +72,7 @@ function BaseConverter() {
                                 <button onClick={resetForm} className='btn btn-secondary text-center'>Reset</button>
                             </div>
                             <div className='mt-4 mb-0 text-center'>
-                                <Link to={`/base-converter/show-calculation?startVal=${value}&fromBase=${fromBase}&toBase=${toBase}&result=${result}`}  className='btn btn-success text-center' state={{calcs: result.calcs}}>ShowCalculation</Link>
+                                <Link to={`/base-converter/show-calculation?startVal=${value}&fromBase=${fromBase}&toBase=${toBase}&result=${result.convertedValue}`}  className='btn btn-success text-center' state={{calcs: result.calcs}}>ShowCalculation</Link>
                             </div>
                         </div>
                     </div>

@@ -13,7 +13,6 @@ export const getMsg = () => {
 export const getBaseConversion = (value, fromBase, toBase) => {
     const body = { val: value, fromBase: fromBase, toBase: toBase };
     return discreteMathsServer.post('/base-converter', body).then((data) => {
-        console.log(data.data);
         return data.data;
     });
 }

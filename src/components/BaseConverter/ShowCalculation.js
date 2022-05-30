@@ -13,20 +13,36 @@ function ShowCalculation() {
         <div className='text-center'>
             <h1 className='text-center text-decoration-underline'>Step 1</h1>
             <div className='container border border-dark p-1 m-1'>
-                <h3 className='text-center'>Converting to a Decimal Number</h3>
-                <div className='row'>
-                    <div className='col text-center p'>({startVal.length}-1)</div>
+                <h3 className='text-center'>Converting to a Decimal Number</h3> 
+                
+                <div className='border col p-3'>
+                    <div className='row text-start'>
+                        <div className='col text-start'>(n-1)</div>
+                        <div className='col'></div>
+                        <div className='col text-start'>({startVal.length}-1)</div>
+                    </div>
+                    <div className='row text-start'>
+                        <div className='col'>
+                            <div>
+                                <h1 className='d-inline'>∑</h1><p className='d-inline ms-3'>d <sub> i</sub> * b &#8305;</p>
+                            </div>
+                        </div>
+                        <div className='col'>
+                            <i title='Becomes' className='bi bi-arrow-right col p-0 text-start'></i>
+                        </div>
+                        <div className='col'>
+                            <div>
+                                <h1 className='d-inline'>∑</h1><p className='d-inline ms-3'>d <sub> i</sub> * {fromBase} &#8305;</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='row text-start'>
+                        <div className='col text-start'>i=0</div>
+                        <div className='col'></div>
+                        <div className='col text-start'>i=0</div>
+                    </div>
                 </div>
-                <div className='row'>
-                    <div className='col '></div>
-                    <div className='col'></div>
-                    <div className='col-1 text-center p-0'><h1><strong>∑</strong></h1></div>
-                    <div className='col m-1 p-0'>d<sub> i</sub> * {fromBase} &#8305;</div>
-                    <div className='col'></div>
-                </div>
-                <div className='row'>
-                    <div className='col text-center'>i=0</div>
-                </div>
+
                 <div id='to-dec-calc' className='text-start ms-2 mt-2 mb-2'>
                     <div style={{
                         display: 'flex', 
@@ -63,7 +79,7 @@ function ShowCalculation() {
                 </div>    
                 <p>{startVal}<sub>{fromBase}</sub> = {decimal}<sub>{10}</sub></p>
             </div>
-
+            
             <h1 className='text-decoration-underline'>Step 2</h1>
             <div className='border border-dark p-1 m-1'>
                 <h3>Converting from a Decimal Number</h3>

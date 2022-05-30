@@ -28,7 +28,7 @@ function ShowCalculation() {
                             </div>
                         </div>
                         <div className='col'>
-                            <i title='Becomes' className='bi bi-arrow-right col p-0 text-start'></i>
+                            <i title='Becomes' className='bi bi-arrow-right col p-0 text-center' style={{fontSize: '30px', color: 'green'}}></i>
                         </div>
                         <div className='col'>
                             <div>

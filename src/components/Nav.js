@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { SortingAlgorithmType } from '../types/SortingAlgorithm';
 
 function Nav() {
+    const [subNavOpen, setSubNavOpen] = useState(false);
+
     return ( 
         <div>
             <button className='btn btn-primary' type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample'>
@@ -19,7 +23,21 @@ function Nav() {
                     <br></br>
                     <Link to='/base-converter' className='m-1 text-decoration-none' style={{color: 'black'}}>Base converter</Link>
                     <br></br>
-                    <Link to='/something-else' className='m-1 text-decoration-none' style={{color: 'black'}}>Something else</Link>
+                    <Link onClick={() => {
+                        setSubNavOpen(!subNavOpen);
+                    }} className='m-1 text-decoration-none' to='/sorting-algorithms' style={{color: 'black'}}>
+                        Sorting Algorithms
+                    </Link>
+                    <ul className={subNavOpen ? 'open': 'closed'} style={{marginBottom: '1px'}}>
+                                <li><Link to='/sorting-algorithms/bubble-sort' className='m-1 text-decoration-none' style={{color: 'black'}}>{SortingAlgorithmType.BUBBLE_SORT.name}</Link></li>
+                                <li><Link to='/sorting-algorithms/bubble-sort-faster' className='m-1 text-decoration-none' style={{color: 'black'}}>Bubble sort faster</Link></li>
+                                <li><Link to='/sorting-algorithms/insertion-sort' className='m-1 text-decoration-none' style={{color: 'black'}}>Insertion Sort</Link></li>
+                                <li><Link to='/sorting-algorithms/merge-sort' className='m-1 text-decoration-none' style={{color: 'black'}}>Merge Sort</Link></li>
+                                <li><Link to='/sorting-algorithms/quick-sort' className='m-1 text-decoration-none' style={{color: 'black'}}>Quick Sort</Link></li>
+                                <li><Link to='/sorting-algorithms/selection-sort' className='m-1 text-decoration-none' style={{color: 'black'}}>Selection Sort</Link></li>
+                      </ul>  
+                    <Link to='/permutations-and-combinations' className='m-1 text-decoration-none' style={{color: 'black'}}>Permutations and Combinations</Link>
+                    <br></br>
                 </div>
             </div>
         </div>

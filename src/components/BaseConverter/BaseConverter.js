@@ -30,7 +30,7 @@ function BaseConverter() {
                 <div className='container-lg'>
                     <div className='text-center'>
                         <h2>Base Converter</h2>
-                        <p className='lead'>Enter your parameters below and press calculate.</p>
+                        <p className='lead'>Enter your parameters below and press 'Calculate'.</p>
                     </div>
                     <p className='text-danger text-center'>{error}</p>
                     <div className='row justify-content-center my-3'>
@@ -72,7 +72,7 @@ function BaseConverter() {
                                 <button onClick={resetForm} className='btn btn-secondary text-center'>Reset</button>
                             </div>
                             <div className='mt-4 mb-0 text-center'>
-                                <Link to={`/base-converter/show-calculation?startVal=${value}&fromBase=${fromBase}&toBase=${toBase}&result=${result.convertedValue}`}  className='btn btn-success text-center' state={{calcs: result.calcs}}>ShowCalculation</Link>
+                                <Link to={`/base-converter/show-calculation?startVal=${value}&fromBase=${fromBase}&toBase=${toBase}&result=${result.convertedValue}`}  className='btn btn-success text-center' state={{calcs: result.calcs}}>Show Calculation</Link>
                             </div>
                         </div>
                     </div>

@@ -59,18 +59,12 @@ function ShowCalculation() {
                                 d = 36 + (d.charCodeAt(0) - 97);
                             }
                             decimal += d * fromBase ** i;
-                            if (i === 0) {
-                                return (
-                                    <div>
-                                        <p>= ({d} * {fromBase}<sup>{i})</sup></p>
-                                        <p>= {d * fromBase ** i}</p>
-                                    </div>
-                                )
-                            }
+                            const preceedingOperator = i === 0 ? '=': '+';
                             return (
-                                <div> 
-                                    <p>+ ({d} * {fromBase}<sup>{i})</sup></p>
-                                    <p>+ {d * fromBase ** i}</p>
+                                <div
+                                key={d._id}>
+                                    <p>{preceedingOperator} ({d} * {fromBase}<sup>{i})</sup></p>
+                                    <p>{preceedingOperator} {d * fromBase ** i}</p>
                                 </div>
                             )
                         })}

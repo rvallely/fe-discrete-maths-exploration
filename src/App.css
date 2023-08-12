@@ -1,3 +1,25 @@
 body {
   background: white;
 }
+
+.closed {
+  height: 0;
+  overflow: hidden;
+}
+
+.open {
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
+}
+ 
+#sorting-algorithm-process {
+  text-align: center;
+  border: solid;
+}
+

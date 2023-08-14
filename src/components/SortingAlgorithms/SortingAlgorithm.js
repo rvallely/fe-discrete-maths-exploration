@@ -9,18 +9,28 @@ function SortingAlgorithm({endpoint, sortingAlgorithmName, sortingAlgorithmDescr
     const [sortingSteps, setSortingSteps] = useState([]);
     const [error, setError] = useState(null);
     const [sortingProcessVisible, setSortingProcessVisible] = useState(true);
+    const [inputListSize, setInputListSize] = useState('');
     
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setError('');
         const unorderedNumberList = unsortedNumbers.replace(' ', '').split(',').map(num => Number(num))
-        await endpoint(unorderedNumberList).then(({sortedNumberList, sortingSteps, timeTaken}) => { 
-            setSortedNumberList(sortedNumberList);
-            setSortingSteps(sortingSteps);
-            setTimeTaken(`${timeTaken} ms`);
+        endpoint(unorderedNumberList).then((data) => {     
+            const {
+                unsortedList,
+                sortedList,
+                inputSize,
+                executionTimeMs,
+                iterations,
+            } = data.data;
+
+            setSortedNumberList(sortedList);
+            setSortingSteps(iterations);
+            setTimeTaken(`${executionTimeMs} ms`);
             setSortingProcessVisible(true);
+            setInputListSize(inputSize)
         }).catch((err) => {
-            setError(err.response.data.msg);
+            setError(err?.response?.data.msg);
         });
     }
 
@@ -64,6 +74,14 @@ function SortingAlgorithm({endpoint, sortingAlgorithmName, sortingAlgorithmDescr
                                     <span className='input-group-text'>
                                     <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(sortedNumberList)} style={{'cursor': 'pointer'}}></i>
                                     </span>
+                                </div>
+                                <label htmlFor='input-size' className='form-label'>Input size::</label>
+                                <div className='mb-4 input-group'>
+                                    <span className='input-group-text'>📏</span>
+                                    <input disabled={true} type='text' className='form-control' id='input-size' value={inputListSize}></input>
+                                    <span className='input-group-text'>
+                                    <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(inputListSize)} style={{'cursor': 'pointer'}}></i>
+                                    </span>
                                 </div>    
                                 <label htmlFor='time-taken' className='form-label'>Time taken:</label>
                                 <div className='mb-4 input-group'>
@@ -76,6 +94,7 @@ function SortingAlgorithm({endpoint, sortingAlgorithmName, sortingAlgorithmDescr
                             </div>
                             <div id='sorting-algorithm-process' className={sortingProcessVisible ? 'open': 'closed'}>
                                 {SortingAlgorithmProcess(
+                                    sortingAlgorithmName,
                                     unsortedNumbers.replace(' ', '').split(',').map(num => Number(num)),
                                     sortingSteps,
                                     sortedNumberList,
@@ -83,7 +102,7 @@ function SortingAlgorithm({endpoint, sortingAlgorithmName, sortingAlgorithmDescr
                             </div>
                         </form>
                         <div className='mt-4 mb-0 text-center'>
-                            <button onClick={resetForm} className='btn btn-secondary text-center'>Reset</button>
+                            <button onClick={resetForm} className='btn btn-secondary text-center mb-2'>Reset</button>
                         </div>
                 </div>
             </section>

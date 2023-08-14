@@ -34,4 +34,3 @@ function App() {
 }
 
 export default App;
-// :startVal/:fromBase/:toBase/:result

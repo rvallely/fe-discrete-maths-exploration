@@ -3,47 +3,90 @@ import SortingAlgorithmProcess from './SortingAlgorithmProcess';
 import { useEffect } from 'react';
 
 function SortingAlgorithm({endpoint, sortingAlgorithmName, sortingAlgorithmDescription, sortingAlgorithmVideo}) {
-    const [unsortedNumbers, setUnsortedNumbers] = useState('');
-    const [sortedNumberList, setSortedNumberList] = useState('');
-    const [timeTaken, setTimeTaken] = useState('');
-    const [sortingSteps, setSortingSteps] = useState([]);
+    console.log(sortingAlgorithmName, '<<< sortingAlgorithmName');
+    const [unsortedNumberList, setUnsortedNumberList] = useState('');
     const [error, setError] = useState(null);
-    const [sortingProcessVisible, setSortingProcessVisible] = useState(true);
-    const [inputListSize, setInputListSize] = useState('');
+    const [sortingProcessVisible, setSortingProcessVisible] = useState(false);
+    const [sortingAlgoName, setSortingAlgoName] = useState(sortingAlgorithmName);
+
+    const [returnedApiData, setReturnedApiData] = useState({
+        unsortedList: '',
+        sortedList: '',
+        executionTimeMs: '',
+        iterations: [],
+        inputSize: '',
+    });
+    // const [sortedNumberList, setSortedNumberList] = useState('');
+    // const [timeTaken, setTimeTaken] = useState('');
+    // const [sortingSteps, setSortingSteps] = useState([]);
     
+    if (sortingAlgorithmName !== sortingAlgoName) {
+        console.log('reload page');
+        setSortingAlgoName(sortingAlgorithmName);
+        setUnsortedNumberList('');
+        setReturnedApiData({
+            unsortedList: '',
+            sortedList: '',
+            executionTimeMs: '',
+            iterations: [],
+            inputSize: '',
+        });
+        setSortingProcessVisible(false);
+    }
+
+    console.log('State: ', {
+        unsortedNumberList, 
+        // sortedNumberList,
+        // timeTaken,
+        // sortingSteps,
+        error,
+        sortingProcessVisible,
+        sortingAlgoName,
+    });
+
     const handleSubmit = (e) => {
+        console.log('handling submit - endpoint ', endpoint)
         e.preventDefault();
         setError('');
-        const unorderedNumberList = unsortedNumbers.replace(' ', '').split(',').map(num => Number(num))
-        endpoint(unorderedNumberList).then((data) => {     
+        const unorderedNumberList = unsortedNumberList.replace(' ', '').split(',').map(num => Number(num))
+        console.log(unorderedNumberList, '<<< unordered number list')
+        endpoint(unorderedNumberList).then((data) => {   
+            console.log('returned data: ', data);  
             const {
-                unsortedList,
                 sortedList,
-                inputSize,
                 executionTimeMs,
                 iterations,
-            } = data.data;
+                inputSize,
+            } = JSON.parse(data.data);
 
-            setSortedNumberList(sortedList);
-            setSortingSteps(iterations);
-            setTimeTaken(`${executionTimeMs} ms`);
+            setReturnedApiData({
+                sortedList,
+                executionTimeMs: `${executionTimeMs} ms`,
+                iterations,
+                inputSize,
+            });
             setSortingProcessVisible(true);
-            setInputListSize(inputSize)
         }).catch((err) => {
-            setError(err?.response?.data.msg);
+            console.log('Error: ', err);
+            setError(err?.response?.data?.msg);
         });
     }
 
     const resetForm = () => {
         document.getElementById('list-sorter').reset();
-        setSortedNumberList('');
-        setTimeTaken('');
+        setUnsortedNumberList('');
+        setReturnedApiData({
+            unsortedList: '',
+            sortedList: '',
+            executionTimeMs: '',
+            iterations: [],
+            inputSize: '',
+        });
         setSortingProcessVisible(false);
     }
 
     useEffect(() => {
-        //
-    }, [sortedNumberList, sortingProcessVisible])
+    }, [returnedApiData.sortedNumberList, sortingProcessVisible]);
     return (  
         <div>
             <section id='number-list-sorting-form'>
@@ -59,7 +102,12 @@ function SortingAlgorithm({endpoint, sortingAlgorithmName, sortingAlgorithmDescr
                                 <label htmlFor='start-value' className='form-label'>Please input a list of numbers delineated by commas: </label>
                                 <div className='mb-4 input-group'>
                                     <span className='input-group-text'>🙃</span>
-                                    <input type='text' className='form-control' id='unsorted-list' placeholder='eg. 2, 10, 9, 6, 8, 1' onChange={(e) => setUnsortedNumbers(e.target.value)}></input>    
+                                    <input type='text' className='form-control' id='unsorted-list' placeholder='eg. 2, 10, 9, 6, 8, 1'
+                                    onChange={(e) => setUnsortedNumberList(e.target.value)}
+                                        value={unsortedNumberList}></input>
+                                    <span className='input-group-text'>
+                                    <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(unsortedNumberList)} style={{'cursor': 'pointer'}}></i>
+                                    </span>    
                                 </div>
 
                                 <div className='mt-4 mb-0 text-center'>
@@ -70,34 +118,33 @@ function SortingAlgorithm({endpoint, sortingAlgorithmName, sortingAlgorithmDescr
                                 <label htmlFor='end-value' className='form-label'>Sorted list:</label>
                                 <div className='mb-4 input-group'>
                                     <span className='input-group-text'>🙂</span>
-                                    <input disabled={true} type='text' className='form-control' id='end-value' value={sortedNumberList}></input>
+                                    <input disabled={true} type='text' className='form-control' id='end-value' value={returnedApiData.sortedList}></input>
                                     <span className='input-group-text'>
-                                    <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(sortedNumberList)} style={{'cursor': 'pointer'}}></i>
+                                    <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(returnedApiData.sortedList)} style={{'cursor': 'pointer'}}></i>
                                     </span>
                                 </div>
                                 <label htmlFor='input-size' className='form-label'>Input size::</label>
                                 <div className='mb-4 input-group'>
                                     <span className='input-group-text'>📏</span>
-                                    <input disabled={true} type='text' className='form-control' id='input-size' value={inputListSize}></input>
+                                    <input disabled={true} type='text' className='form-control' id='input-size' value={returnedApiData.inputSize}></input>
                                     <span className='input-group-text'>
-                                    <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(inputListSize)} style={{'cursor': 'pointer'}}></i>
+                                    <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(returnedApiData.inputSize)} style={{'cursor': 'pointer'}}></i>
                                     </span>
                                 </div>    
                                 <label htmlFor='time-taken' className='form-label'>Time taken:</label>
                                 <div className='mb-4 input-group'>
                                     <span className='input-group-text'>⌚</span>
-                                    <input disabled={true} type='text' className='form-control' id='time-taken' value={timeTaken}></input>
+                                    <input disabled={true} type='text' className='form-control' id='time-taken' value={returnedApiData.executionTimeMs}></input>
                                     <span className='input-group-text'>
-                                    <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(timeTaken)} style={{'cursor': 'pointer'}}></i>
+                                    <i title='Copy' className="bi bi-back" onClick={() => navigator.clipboard.writeText(returnedApiData.executionTimeMs)} style={{'cursor': 'pointer'}}></i>
                                     </span>
                                 </div>
                             </div>
                             <div id='sorting-algorithm-process' className={sortingProcessVisible ? 'open': 'closed'}>
                                 {SortingAlgorithmProcess(
                                     sortingAlgorithmName,
-                                    unsortedNumbers.replace(' ', '').split(',').map(num => Number(num)),
-                                    sortingSteps,
-                                    sortedNumberList,
+                                    unsortedNumberList.replace(' ', '').split(',').map(num => Number(num)),
+                                    returnedApiData
                                     )}
                             </div>
                         </form>

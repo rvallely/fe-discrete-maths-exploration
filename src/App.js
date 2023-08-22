@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Nav from './components/Nav';
 import BaseConverter from './components/BaseConverter/BaseConverter';
 import ShowCalculation from './components/BaseConverter/ShowCalculation';
-import { SortingAlgorithmHome } from './components/SortingAlgorithms/SortingAlgorithmHome';
+import SortingAlgorithmHome from './components/SortingAlgorithms/SortingAlgorithmHome';
 import { getSortedListUsingBubbleSort, getSortedListUsingBubbleSortFaster, getSortedListUsingInsertionSort, getSortedListUsingMergeSort, getSortedListUsingQuickSort, getSortedListUsingSelectionSort } from './utils/server';
 import { SortingAlgorithmType } from './types/SortingAlgorithm';
 import SortingAlgorithm from './components/SortingAlgorithms/SortingAlgorithm';

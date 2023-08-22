@@ -23,3 +23,10 @@ body {
   border: solid;
 }
 
+.node-diagram-container { 
+  height: calc(100% - 44.50px - 44.50px);
+  margin: 30;
+  border: 'dashed';
+  border-color: 'yellow';
+  position: 'relative';
+}

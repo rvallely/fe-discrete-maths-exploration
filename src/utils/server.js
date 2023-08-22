@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { ENV } from '../env';
 
 const discreteMathsServer = axios.create({
-    baseURL: process.env === 'prod' ? 'https://discrete-maths-exploration.herokuapp.com': 'http://localhost:9090/',
+    baseURL: ENV === 'prod' ? 'https://discrete-maths-exploration.herokuapp.com': 'http://localhost:9090/',
     headers: {'Access-Control-Allow-Origin': '*'}
 });
 
@@ -38,37 +39,23 @@ export const getSortedListUsingMergeSort = async (unsortedList) => {
     });
 }
 
-export const getSortedListUsingInsertionSort = async (unorderedNumberList) => {
-    return {
-        sortedNumberList: String(unorderedNumberList.replace(' ', '').split(',').map(num => Number(num)).sort((a, b) => a - b)).replace(/,/g, ', '),
-        sortingSteps: [
-            { iteration: [2, 7, 8, 10], swapNeeded: true},
-            { iteration: [2, 7, 8, 10], swapNeeded: false}
-        ],
-        timeTaken: '0.25',
-    }
+export const getSortedListUsingInsertionSort = async (unsortedList) => {
+    return discreteMathsServer.post('/sorting-algorithms/insertion-sort', { unsortedList }).then((data) => {
+        return data.data;
+    });
 }
 
-export const getSortedListUsingQuickSort = async (unorderedNumberList) => {
-    return {
-        sortedNumberList: String(unorderedNumberList.replace(' ', '').split(',').map(num => Number(num)).sort((a, b) => a - b)).replace(/,/g, ', '),
-        sortingSteps: [
-            { iteration: [2, 7, 8, 10], swapNeeded: true},
-            { iteration: [2, 7, 8, 10], swapNeeded: false}
-        ],
-        timeTaken: '0.25',
-    }
+export const getSortedListUsingQuickSort = async (unsortedList) => {
+    return discreteMathsServer.post('/sorting-algorithms/quick-sort', { unsortedList }).then((data) => {
+        return data.data;
+    });
 }
 
-export const getSortedListUsingSelectionSort = async (unorderedNumberList) => {
-    return {
-        sortedNumberList: String(unorderedNumberList.replace(' ', '').split(',').map(num => Number(num)).sort((a, b) => a - b)).replace(/,/g, ', '),
-        sortingSteps: [
-            { iteration: [2, 7, 8, 10], swapNeeded: true},
-            { iteration: [2, 7, 8, 10], swapNeeded: false}
-        ],
-        timeTaken: '0.25',
-    }
+export const getSortedListUsingSelectionSort = async (unsortedList) => {
+    return discreteMathsServer.post('/sorting-algorithms/selection-sort', { unsortedList }).then((data) => {
+        console.log(data.data, '<<< returned api data')
+        return data.data;
+    });
 }
 
 

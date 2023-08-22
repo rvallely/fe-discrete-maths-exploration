@@ -18,7 +18,15 @@ export const SortingAlgorithmType = Object.freeze({
     },
     MERGE_SORT: {
         name: 'Merge Sort',
-        description: '',
+        description: <div className='lead'>
+            <p>Merge sort works by recursively splitting the original list of numbers into two until the resulting lists be divided no more (each list only has one element in it).</p>
+            <br></br>
+            <p>Then taking two adjacent lists from the current level and it compares the first element of each list, removing the smaller element and placing it at the end of a new merged list. It repeats this comparison again with the two adjacent lists until all elements from the two lists have been placed and sorted into the new merged list.</p>
+            <br></br>
+            <p>
+            The sorting process above is repeated for all the adjacent lists on the current level. When they have all been emptied and sorted into merged lists, we reapeat the sorting on these lists and so on until only one element remains in the list which is the fully sorted list.
+            </p>
+        </div>,
         video: BubbleSortVideo,
     },
     QUICK_SORT: {

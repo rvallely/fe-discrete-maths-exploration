@@ -1,15 +1,14 @@
 import React from 'react';
 import { SortingAlgorithmType } from '../../types/SortingAlgorithm';
 import QuickSortProcess from './QuickSortProcess';
+import { v4 as uuidv4 } from 'uuid';
 
-function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNumberList, returnedApiData) {
+function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, returnedApiData) {
     console.log(returnedApiData.iterations[0], '<<< first element iterations');
-    console.log(unsortedNumberList, '<<< unsortedNumber list')
-    let correctSortingAlgorithmDisplay = '';
     switch (sortingAlgorithmName) {
         case SortingAlgorithmType.BUBBLE_SORT.name:
-            correctSortingAlgorithmDisplay = <div>
-                    <h4>Start: [{String(unsortedNumberList)}]</h4>
+            return <div>
+                    <h4>Start: [{String(returnedApiData.unsortedList)}]</h4>
                     <table className="table">
                         <thead>
                             <tr key='bubble-sort-process-columns'>
@@ -20,9 +19,8 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
                         </thead>
                         <tbody>
                             {returnedApiData.iterations.map((step, index) => {
-                            // console.log('step: ', step)
                             return (
-                                <tr >
+                                <tr key={uuidv4()}>
                                     <td>{index + 1}</td>
                                     <td>[{String(step.listAfterPass)}]</td>
                                     <td>{String(step.swapNeeded)}</td>
@@ -32,10 +30,9 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
                     </table> 
                     <h4>End: [{String(returnedApiData.sortedList)}]</h4>
                 </div>
-            break;
         case SortingAlgorithmType.BUBBLE_SORT_FASTER.name:
-            correctSortingAlgorithmDisplay = <div>
-            <h4>Start: [{String(unsortedNumberList)}]</h4>
+            return <div>
+            <h4>Start: [{String(returnedApiData.unsortedList)}]</h4>
             <table className="table">
                 <thead>
                     <tr>
@@ -48,9 +45,8 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
                 </thead>
                 <tbody>
                     {returnedApiData.iterations.map((step, index) => {
-                    // console.log('step: ', step)
                     return (
-                        <tr>
+                        <tr key={uuidv4()}>
                         <td>{index + 1}</td>
                         <td>[{String(step.listBeforePass)}]</td>
                         <td>{String(step.swapNeeded)}</td>
@@ -62,10 +58,9 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
             </table> 
             <h4>End: [{String(returnedApiData.sortedList)}]</h4>
         </div>
-            break;
         case SortingAlgorithmType.MERGE_SORT.name:
-            correctSortingAlgorithmDisplay = <div>
-                <h4>Start: [{String(unsortedNumberList)}]</h4>
+            return <div>
+                <h4>Start: [{String(returnedApiData.unsortedList)}]</h4>
                 <h5>Splitting Process</h5>
                 <table className="table">
                 <thead>
@@ -78,15 +73,14 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
                     {returnedApiData.iterations.splitting.map((step, index) => {
                 
                     return (
-                        <tr>
+                        <tr key={uuidv4()}>
                         <td>{index + 1}</td>
                         <td>{JSON.stringify(step)}</td>
                     </tr>
                     )})}
                 </tbody>
             </table>
-            <br>
-            </br>
+            <br key={uuidv4}></br>
             <h5>Sorting Process</h5>
                 <table className="table">
                 <thead>
@@ -97,9 +91,8 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
                 </thead>
                 <tbody>
                     {returnedApiData.iterations.sorting.map((step, index) => {
-                
                     return (
-                        <tr>
+                        <tr key={uuidv4()}>
                         <td>{index + 1}</td>
                         <td>{JSON.stringify(step)}</td>
                     </tr>
@@ -108,13 +101,11 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
             </table>
             <h4>End: [{String(returnedApiData.sortedList)}]</h4>
             </div>
-            break;
         case SortingAlgorithmType.QUICK_SORT.name:
-            correctSortingAlgorithmDisplay = <QuickSortProcess iterations={returnedApiData.iterations}/>;
-            break;
+            return <QuickSortProcess iterations={returnedApiData.iterations}/>;
         case SortingAlgorithmType.INSERTION_SORT.name:
-            correctSortingAlgorithmDisplay = <div>
-            <h4>Start: [{String(unsortedNumberList)}]</h4>
+            return <div>
+            <h4>Start: [{String(returnedApiData.unsortedList)}]</h4>
             <table className="table">
                 <thead>
                     <tr>
@@ -129,13 +120,13 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
                 <tbody>
                     {returnedApiData.iterations.map((step, index) => {
                     return (
-                        <tr>
+                        <tr key={uuidv4()}>
                         <td>{index + 1}</td>
                         <td>[{String(step.listBeforePass)}]</td>
                         <td>{String(step.valueBeingInserted)}</td>
                         <td>[{String(step.numberListAfterRemovingValueBeingInserted)}]</td>
                         <td>{step.process.reduce((acc, status) => {
-                            return acc.concat([status, <br></br>]);
+                            return acc.concat([status, <br key={uuidv4()}></br>]);
                         }, [])}</td>
                         <td>[{String(step.listAfterPass)}]</td>
                     </tr>
@@ -144,10 +135,9 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
             </table> 
             <h4>End: [{String(returnedApiData.sortedList)}]</h4>
         </div>
-            break;
         case SortingAlgorithmType.SELECTION_SORT.name:
-            correctSortingAlgorithmDisplay = <div>
-            <h4>Start: [{String(unsortedNumberList)}]</h4>
+            return <div>
+            <h4>Start: [{String(returnedApiData.unsortedList)}]</h4>
             <table className="table">
                 <thead>
                     <tr>
@@ -161,12 +151,12 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
                 <tbody>
                     {returnedApiData.iterations.map((step, index) => {
                     return (
-                        <tr >
+                        <tr key={uuidv4()}>
                         <td>{index + 1}</td>
                         <td>[{String(step.listBeforePass)}]</td>
                         <td>{String(step.indexToHaveSortedValueAssigned)}</td>
                         <td>{step.process.reduce((acc, status) => {
-                            return acc.concat([status, <br></br>]);
+                            return acc.concat([status, <br key={uuidv4()}></br>]);
                         }, [])}</td>
                         <td>[{String(step.listAfterPass)}]</td>
                     </tr>
@@ -175,18 +165,16 @@ function renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNum
             </table> 
             <h4>End: [{String(returnedApiData.sortedList)}]</h4>
         </div>
-            break;
-            default:
+        default:
             break;
     }
-    return correctSortingAlgorithmDisplay;
 }
 
-function SortingAlgorithmProcess(sortingAlgorithmName, unsortedNumberList, returnedApiData) {
+function SortingAlgorithmProcess(sortingAlgorithmName, returnedApiData) {
     console.log(returnedApiData, '<<< returnedApiData');
     const sortingAlgorithmProcess = returnedApiData.sortedList.length === 0
     ? ''
-    : renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, unsortedNumberList, returnedApiData);
+    : renderCorrectAlgorithmProcessDisplay (sortingAlgorithmName, returnedApiData);
     return sortingAlgorithmProcess;
 }
 

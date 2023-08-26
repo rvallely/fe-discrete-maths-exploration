@@ -13,13 +13,8 @@ function BaseConverter() {
         e.preventDefault();
         setError('');
         getBaseConversion(value, fromBase, toBase).then((result) => {
-            console.log('result: ', result)
             setResult(result);
         }).catch((err) => {
-            console.log(JSON.stringify(err))
-            console.log(Object.keys(err));
-            console.log(err.message);
-            console.log(err.code);
             setError(err.response.data.msg);
         });
     }

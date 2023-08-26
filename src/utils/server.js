@@ -21,41 +21,9 @@ export const getBaseConversion = async (value, fromBase, toBase) => {
     });
 }
 
-export const getSortedListUsingBubbleSort = async (unsortedList) => {
-    return discreteMathsServer.post('/sorting-algorithms/bubble-sort', { unsortedList }).then((data) => {
+export const getSortedList = async (body, sortingAlgorithmPathName) => {
+    return discreteMathsServer.post(`/sorting-algorithms/${sortingAlgorithmPathName}`, body).then((data) => {
         return data.data;
     });
 }
-
-export const getSortedListUsingBubbleSortFaster = async (unsortedList) => {
-    return discreteMathsServer.post('/sorting-algorithms/bubble-sort-faster', { unsortedList }).then((data) => {
-        return data.data;
-    });
-}
-
-export const getSortedListUsingMergeSort = async (unsortedList) => {
-    return discreteMathsServer.post('/sorting-algorithms/merge-sort', { unsortedList }).then((data) => {
-        return data.data;
-    });
-}
-
-export const getSortedListUsingInsertionSort = async (unsortedList) => {
-    return discreteMathsServer.post('/sorting-algorithms/insertion-sort', { unsortedList }).then((data) => {
-        return data.data;
-    });
-}
-
-export const getSortedListUsingQuickSort = async (unsortedList) => {
-    return discreteMathsServer.post('/sorting-algorithms/quick-sort', { unsortedList }).then((data) => {
-        return data.data;
-    });
-}
-
-export const getSortedListUsingSelectionSort = async (unsortedList) => {
-    return discreteMathsServer.post('/sorting-algorithms/selection-sort', { unsortedList }).then((data) => {
-        console.log(data.data, '<<< returned api data')
-        return data.data;
-    });
-}
-
 

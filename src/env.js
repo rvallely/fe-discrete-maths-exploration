@@ -1,1 +1,5 @@
-export const ENV = 'dev'
+const ENV = process.env.ENV || 'dev';
+
+export default {
+  ENV,
+};

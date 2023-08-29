@@ -97,7 +97,7 @@ function SortingAlgorithm(
                 htmlFor="start-value"
                 className="form-label"
               >
-                Please input a list of numbers delineated by commas:
+                Please input a list of numbers delineated by a comma and a space:
                 {' '}
 
               </label>

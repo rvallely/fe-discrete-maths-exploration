@@ -15,6 +15,7 @@ module.exports = {
     semi: [2, 'always'],
     'no-unused-expressions': [2, { allowTernary: true }],
     'prefer-promise-reject-errors': 'off',
+    'no-restricted-syntax': 'off',
   },
   plugins: [
     'jest',

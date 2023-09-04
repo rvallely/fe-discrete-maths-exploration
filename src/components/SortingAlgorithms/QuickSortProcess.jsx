@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-param-reassign */
 import ReactFlow, {
   MiniMap,
@@ -17,7 +18,11 @@ const getPositionEdgeAndParent = (element, previousFeNodeLayer, currentFeNodeLay
   }
   const feParentNode = previousFeNodeLayer.find(({ id }) => id === element.previousNode.name);
   const edge = {
-    id: `e-${feParentNode.id}-${element.name}`, source: feParentNode.id, target: element.name, type: 'straight',
+    id: `e-${feParentNode.id}-${element.name}`,
+    source: feParentNode.id,
+    target: element.name,
+    type: 'straight',
+    label: JSON.stringify(element.fullList),
   };
   const position = {};
   let positionToRootNode;
@@ -167,7 +172,7 @@ const getNodesAndEdges = (iterations) => {
             positionToRootNode,
           },
           position,
-          style: { backgroundColor: 'pink', border: 'dashed', borderColor: 'green' },
+          style: { backgroundColor: 'pink' },
           width: 140,
           draggable: true,
         });
@@ -186,11 +191,11 @@ function QuickSortProcess({ iterations }) {
 
   return (
     <div style={{
-      height: 1000, margin: 30, border: 'dashed', borderColor: 'yellow', position: 'relative', draggable: 'true',
+      height: 1000, margin: 30, position: 'relative', draggable: 'true',
     }}
     >
       <ReactFlow
-        style={{ border: 'solid', borderColor: 'green' }}
+        style={{ border: 'solid', borderColor: 'black', backgroundColor: 'white' }}
         nodes={nodes}
         edges={edges}
         selectionOnDrag={false}

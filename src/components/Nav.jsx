@@ -77,7 +77,7 @@ function Nav() {
                 className="m-1 text-decoration-none"
                 style={{ color: 'black' }}
               >
-                Bubble sort faster
+                {SortingAlgorithmType.BUBBLE_SORT_FASTER.name}
               </Link>
             </li>
             <li key="nav-selection-sort">
@@ -86,7 +86,7 @@ function Nav() {
                 className="m-1 text-decoration-none"
                 style={{ color: 'black' }}
               >
-                Selection Sort
+                {SortingAlgorithmType.SELECTION_SORT.name}
               </Link>
             </li>
             <li key="nav-insertion-sort">
@@ -95,7 +95,7 @@ function Nav() {
                 className="m-1 text-decoration-none"
                 style={{ color: 'black' }}
               >
-                Insertion Sort
+                {SortingAlgorithmType.INSERTION_SORT.name}
               </Link>
             </li>
             <li key="nav-merge-sort">
@@ -104,7 +104,7 @@ function Nav() {
                 className="m-1 text-decoration-none"
                 style={{ color: 'black' }}
               >
-                Merge Sort
+                {SortingAlgorithmType.MERGE_SORT.name}
               </Link>
             </li>
             <li key="nav-quick-sort">
@@ -113,7 +113,7 @@ function Nav() {
                 className="m-1 text-decoration-none"
                 style={{ color: 'black' }}
               >
-                Quick Sort
+                {SortingAlgorithmType.QUICK_SORT.name}
               </Link>
             </li>
           </ul>

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getBaseConversion } from '../../utils/server';
@@ -25,7 +26,7 @@ function BaseConverter() {
   };
 
   return (
-    <div>
+    <div style={{ background: 'white' }}>
       <section id="base-converter-form">
         <div className="container-lg">
           <div className="text-center">
@@ -47,7 +48,6 @@ function BaseConverter() {
                     onChange={(e) => setValue(e.target.value)}
                   />
                 </div>
-
                 <label htmlFor="from-base" className="form-label">From base:</label>
                 <div className="mb-4 input-group">
                   <span className="input-group-text">🏁</span>

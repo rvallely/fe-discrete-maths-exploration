@@ -1,5 +1,5 @@
 body {
-  background: white;
+  background: whitesmoke;
 }
 
 .closed {
@@ -21,6 +21,7 @@ body {
 #sorting-algorithm-process {
   text-align: center;
   border: solid;
+  border-color: aqua;
 }
 
 .node-diagram-container { 

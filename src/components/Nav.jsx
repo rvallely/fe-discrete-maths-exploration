@@ -1,133 +1,52 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+/* eslint-disable semi */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-unused-vars */
+/* eslint-disable max-len */
+import React from 'react';
 import SortingAlgorithmType from '../types/SortingAlgorithm';
 
 function Nav() {
-  const [subNavOpen, setSubNavOpen] = useState(false);
-
+  const fontColour = window.location.pathname === '/' ? 'home-page-font' : 'app-font'
   return (
-    <div>
-      <button
-        className="btn btn-primary"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample"
-      >
-        ⇤⇥
-      </button>
+    <ul className="nav justify-content-end app-nav">
+      <li className="nav-item">
+        <a className={`nav-link app-nav-item ${fontColour}`} href="/">
+          <strong>D</strong>
+          M
+          {' '}
+          <strong>HOME</strong>
 
-      <div
-        className="offcanvas offcanvas-start"
-        tabIndex="-1"
-        id="offcanvasExample"
-        aria-labelledby="offcanvasExampleLabel"
-        style={{ maxWidth: '80%' }}
-      >
-        <div className="offcanvas-header">
-          <h5 className="offcanvas-title mb-0" id="offcanvasExampleLabel">Discrete Maths</h5>
-          <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" />
+        </a>
+      </li>
+      <li className="nav-item">
+        <a className={`nav-link app-nav-item ${fontColour}`} href="/what-is-discrete-math"><strong>WHAT IS DISCRETE MATH?</strong></a>
+      </li>
+      <li className="nav-item">
+        <a
+          className={`nav-link dropdown-toggle app-nav-item ${fontColour}`}
+          href={window.location.href}
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <strong>SORTING ALGORITHMS</strong>
+        </a>
+        <div className="dropdown-menu bg-transparent" aria-labelledby="navbarDropdown">
+          {Object.keys(SortingAlgorithmType).map((sortingAlgorithmName) => {
+            const href = `/sorting-algorithms/${SortingAlgorithmType[sortingAlgorithmName].pathName}`;
+            return <a className={`dropdown-item app-nav-item ${fontColour}`} href={href}><strong>{SortingAlgorithmType[sortingAlgorithmName].name.toUpperCase()}</strong></a>;
+          })}
         </div>
-
-        <div className="offcanvas-body">
-          <Link to="/" className="m-1 text-decoration-none" style={{ color: 'black' }}>Home</Link>
-          <br />
-          <Link
-            to="/base-converter"
-            className="m-1 text-decoration-none"
-            style={{ color: 'black' }}
-          >
-            Base converter
-
-          </Link>
-          <br />
-          <Link
-            to="/summation-calculator"
-            className="m-1 text-decoration-none"
-            style={{ color: 'black' }}
-          >
-            Summation calculator
-
-          </Link>
-          <br />
-          <Link
-            onClick={() => {
-              setSubNavOpen(!subNavOpen);
-            }}
-            className="m-1 text-decoration-none"
-            to="/sorting-algorithms"
-            style={{ color: 'black' }}
-          >
-            Sorting Algorithms
-          </Link>
-          <ul className={subNavOpen ? 'open' : 'closed'} style={{ marginBottom: '1px' }}>
-            <li key="nav-bubble-sort">
-              <Link
-                to="/sorting-algorithms/bubble-sort"
-                className="m-1 text-decoration-none"
-                style={{ color: 'black' }}
-              >
-                {SortingAlgorithmType.BUBBLE_SORT.name}
-              </Link>
-            </li>
-            <li key="nav-bubble-sort-faster">
-              <Link
-                to="/sorting-algorithms/bubble-sort-faster"
-                className="m-1 text-decoration-none"
-                style={{ color: 'black' }}
-              >
-                {SortingAlgorithmType.BUBBLE_SORT_FASTER.name}
-              </Link>
-            </li>
-            <li key="nav-selection-sort">
-              <Link
-                to="/sorting-algorithms/selection-sort"
-                className="m-1 text-decoration-none"
-                style={{ color: 'black' }}
-              >
-                {SortingAlgorithmType.SELECTION_SORT.name}
-              </Link>
-            </li>
-            <li key="nav-insertion-sort">
-              <Link
-                to="/sorting-algorithms/insertion-sort"
-                className="m-1 text-decoration-none"
-                style={{ color: 'black' }}
-              >
-                {SortingAlgorithmType.INSERTION_SORT.name}
-              </Link>
-            </li>
-            <li key="nav-merge-sort">
-              <Link
-                to="/sorting-algorithms/merge-sort"
-                className="m-1 text-decoration-none"
-                style={{ color: 'black' }}
-              >
-                {SortingAlgorithmType.MERGE_SORT.name}
-              </Link>
-            </li>
-            <li key="nav-quick-sort">
-              <Link
-                to="/sorting-algorithms/quick-sort"
-                className="m-1 text-decoration-none"
-                style={{ color: 'black' }}
-              >
-                {SortingAlgorithmType.QUICK_SORT.name}
-              </Link>
-            </li>
-          </ul>
-          <Link
-            to="/permutations-and-combinations"
-            className="m-1 text-decoration-none"
-            style={{ color: 'black' }}
-          >
-            Permutations and Combinations
-          </Link>
-          <br />
-        </div>
-      </div>
-    </div>
+      </li>
+      <li className="nav-item">
+        <a className={`nav-link app-nav-item ${fontColour}`} href="/base-converter"><strong>BASE CONVERTER</strong></a>
+      </li>
+      <li className="nav-item">
+        <a className={`nav-link app-nav-item ${fontColour}`} href="/summation-calculator"><strong>SUMMATION CALCULATOR</strong></a>
+      </li>
+    </ul>
   );
 }
 

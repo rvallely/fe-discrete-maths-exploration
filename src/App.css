@@ -1,6 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
 body {
-  background: whitesmoke;
+  /* background: white; */
+  font-family: 'Work Sans', sans-serif;
 }
+
+.home-page-font {
+  color: #fdfff4;
+}
+
+.home-page-title {
+  font-size: 220px;
+
+}
+
+.app-font {
+  color: #150e60;
+}
+
+.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.app-nav-item {
+  font-size: 31px;
+}
+
+.app-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+/* @font-face {
+	font-family: 'Roboto Flex';
+	src: url('RobotoFlex-VF.woff2') format('woff2') tech('variations'),
+	     url('RobotoFlex-VF.woff2') format('woff2-variations');
+	font-weight: 100 1000;
+	font-stretch: 25% 151%;
+} */
 
 .closed {
   height: 0;
@@ -20,9 +64,11 @@ body {
  
 #sorting-algorithm-process {
   text-align: center;
-  border: solid;
-  border-color: aqua;
+  background-color: white;
+  /* border: solid;
+  border-color: aqua; */
 }
+
 
 .node-diagram-container { 
   height: calc(100% - 44.50px - 44.50px);
@@ -30,4 +76,21 @@ body {
   border: 'dashed';
   border-color: 'yellow';
   position: 'relative';
+}
+
+.home-page-box {
+  /* border: solid;
+  border-color: red; */
+}
+
+.row-box {
+  /* border: solid;
+  border-color:blue; */
+}
+
+img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    display: block;
 }

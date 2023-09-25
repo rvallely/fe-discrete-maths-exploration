@@ -1,3 +1,12 @@
+/* eslint-disable object-curly-newline */
+/* eslint-disable jsx-quotes */
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-lone-blocks */
+/* eslint-disable no-unreachable */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable spaced-comment */
+/* eslint-disable indent */
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable max-len */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -7,10 +16,12 @@
 import React, { useState } from 'react';
 import SortingAlgorithmProcess from './SortingAlgorithmProcess';
 import { getSortedList } from '../../utils/server';
+import lightBgrdDarkDetailDownArrows from '../../assets/arrowsDownLightBlueDark.mp4';
+import lightBgrdDarkDetailUpArrows from '../../assets/arrowsUpLightBlueDark.mp4';
 
 function SortingAlgorithm(
   {
-    sortingAlgorithmName, sortingAlgorithmDescription, sortingAlgorithmVideo, sortingAlgorithmPathName,
+    sortingAlgorithmName, sortingAlgorithmDescription, sortingAlgorithmVideo, sortingAlgorithmPathName, sortingAlgorithmIcon,
   },
 ) {
   const [unsortedNumberList, setUnsortedNumberList] = useState('');
@@ -82,29 +93,44 @@ function SortingAlgorithm(
     });
   };
 
+  function scrollToPage(pageNumber) {
+    const page = document.getElementById(`page${pageNumber}`);
+    page.scrollIntoView({ behavior: 'smooth' });
+}
   return (
-    <div style={{ border: 'solid', borderColor: 'purple', margin: '40px' }}>
-      <section id="number-list-sorting-form">
-        <div
-          className="container-fluid"
-          style={
-          {
-            width: 'max-content',
-          }
-          }
-        >
-          <div className="container-lg text-center">
-            <h2>{sortingAlgorithmName}</h2>
+    <div className="test-body light-page dark-font">
+      <div className="scrollable-skip-a-page first-scrollable-skip-a-page content" id="page1">
+      {/* , border: 'dashed', borderColor: 'purple' */}
+          <div className="row" style={{ marginTop: '0', marginRight: '10%', marginLeft: '10%' }}>
+            <h2><strong>{sortingAlgorithmName}</strong></h2>
             <p>{sortingAlgorithmDescription}</p>
-            <br />
-            <video src={sortingAlgorithmVideo} width="600" height="300" controls="controls" autoPlay={false} />
-            <p className="text-danger">{error}</p>
+          </div>
+          <video src={sortingAlgorithmVideo} width="600" height="300" controls="controls" autoPlay={false} style={{ flexGrow: 1 }} />
+          <p><strong>Try it out</strong></p>
+          <video
+            src={lightBgrdDarkDetailDownArrows}
+            height='60'
+            autoPlay
+            loop
+            onClick={(() => scrollToPage(2))}
+          />
+      </div>
+
+      <div className="scrollable-skip-a-page content" id="page2">
+        <h2><strong>{sortingAlgorithmName}</strong></h2>
+        <div className="row">
+          <div className="col-xl" id="try-sorting-algorithm">
+            Bubble
+          </div>
+          <div className="col-9">
             <form
               onSubmit={handleSubmit}
               id="list-sorter"
-              className="row justify-content-center my-3"
+              className="row justify-content-center my-3 rounded-box dark-font"
+              // style={{ border: 'dashed', borderColor: 'teal' }}
             >
-              <div className="col-lg-6">
+              {/* , border: 'dashed', borderColor: 'mint' */}
+              <div className="col-lg-6" style={{ width: '100%' }}>
                 <label
                   htmlFor="start-value"
                   className="form-label"
@@ -134,7 +160,7 @@ function SortingAlgorithm(
                 </div>
 
                 <div className="mt-4 mb-0 text-center">
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-lg text-center mb-2 button blue-button light-font">
                     Sort
                   </button>
                 </div>
@@ -144,9 +170,9 @@ function SortingAlgorithm(
                     Sorted list:
                   </label>
                   <div className="input-group">
-                    <div className="input-group-prepend">
-                      <span className="input-group-text">🙂</span>
-                    </div>
+                    {/* <div className="input-group-prepend"> */}
+                      <span className="input-group-text input-group-prepend">🙂</span>
+                    {/* </div> */}
                     <input
                       disabled
                       type="text"
@@ -194,17 +220,32 @@ function SortingAlgorithm(
               </div>
             </form>
           </div>
-          <div id="sorting-algorithm-process">
+          <div className="col" style={{ border: 'dashed', borderColor: 'blue' }}>
+            bubble
+          </div>
+        </div>
+        {/* <div className="row"> */}
+          <div className="col-xl text-center">
             {SortingAlgorithmProcess(
               sortingAlgoName,
               returnedApiData,
             )}
           </div>
+        {/* </div> */}
+        <div className="row" style={{ flexGrow: 1 }}>
           <div className="mt-4 mb-0 text-center">
-            <button type="button" onClick={resetForm} className="btn btn-secondary text-center mb-2">Reset</button>
+            <button type="button" onClick={resetForm} className="btn btn-lg text-center mb-2 button dark-button light-font">Reset</button>
           </div>
         </div>
-      </section>
+        <p><strong>Back to top</strong></p>
+        <video
+          src={lightBgrdDarkDetailUpArrows}
+          height='60'
+          autoPlay
+          loop
+          onClick={(() => scrollToPage(1))}
+        />
+      </div>
     </div>
   );
 }

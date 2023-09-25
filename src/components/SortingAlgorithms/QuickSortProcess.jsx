@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-boolean-value */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-param-reassign */
 import ReactFlow, {
@@ -189,9 +191,12 @@ const getNodesAndEdges = (iterations) => {
 function QuickSortProcess({ iterations }) {
   const { nodes, edges } = getNodesAndEdges(iterations);
 
+  const sortedXValues = nodes.sort((a, b) => a.position.x - b.position.x).map((val) => val.position.x);
+  const width = (sortedXValues[sortedXValues.length - 1] + 190) - (sortedXValues[0]);
+
   return (
     <div style={{
-      height: 1000, margin: 30, position: 'relative', draggable: 'true',
+      height: 1000, width: width > 1500 ? '100vw' : 1000, margin: 30, position: 'relative', draggable: 'true',
     }}
     >
       <ReactFlow
@@ -206,7 +211,7 @@ function QuickSortProcess({ iterations }) {
         preventScrolling
         panOnScroll={false}
         zoomOnScroll={false}
-        fitView
+        fitView={true}
       >
         <MiniMap />
         <Controls />

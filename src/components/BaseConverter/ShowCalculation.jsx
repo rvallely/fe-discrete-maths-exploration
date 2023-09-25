@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-underscore-dangle */
 import { useSearchParams, useLocation } from 'react-router-dom';
 import React from 'react';
 

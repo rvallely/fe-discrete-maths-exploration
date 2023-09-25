@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable max-len */
 import React from 'react';
 import BubbleSortVideo from '../assets/cardboard_work_desks.mp4';
+import bubbleSortFasterIcon from '../assets/bubbleSortFasterIcon.mp4';
 
 const SortingAlgorithmType = Object.freeze({
   BUBBLE_SORT: {
@@ -30,6 +32,11 @@ const SortingAlgorithmType = Object.freeze({
   </div>,
     video: BubbleSortVideo,
     pathName: 'bubble-sort-faster',
+    icon: <video
+      height="60%"
+      loop
+      src={bubbleSortFasterIcon}
+    />,
   },
   SELECTION_SORT: {
     name: 'Selection Sort',

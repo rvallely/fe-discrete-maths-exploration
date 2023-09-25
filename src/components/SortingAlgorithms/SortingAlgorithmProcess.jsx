@@ -67,7 +67,11 @@ function renderCorrectAlgorithmProcessDisplay(sortingAlgorithmName, returnedApiD
     case SortingAlgorithmType.MERGE_SORT.name:
       correctAlgorithmProcessDisplay = (
         <div>
-          <h5>Splitting Process</h5>
+          <h5>
+            <strong>
+              Splitting Process
+            </strong>
+          </h5>
           <table className="table table-bordered">
             <thead className="table-active">
               <tr>
@@ -85,7 +89,12 @@ function renderCorrectAlgorithmProcessDisplay(sortingAlgorithmName, returnedApiD
             </tbody>
           </table>
           <br key={uuidv4} />
-          <h5>Sorting Process</h5>
+          <h5>
+            <strong>
+              Sorting Process
+            </strong>
+
+          </h5>
           <table className="table table-bordered">
             <thead className="table-active">
               <tr>
@@ -182,17 +191,21 @@ function renderCorrectAlgorithmProcessDisplay(sortingAlgorithmName, returnedApiD
       return undefined;
   }
   return (
-    <div>
-      <h4>
-        Start:
-        {' '}
-        {JSON.stringify(returnedApiData.unsortedList)}
+    <div className="rounded-box dark-font" style={{ width: 'fit-content' }}>
+      <h4 style={{ marginTop: '20px', marginBottom: '20px' }}>
+        <strong>
+          Start:
+          {' '}
+          {JSON.stringify(returnedApiData.unsortedList)}
+        </strong>
       </h4>
       {correctAlgorithmProcessDisplay}
-      <h4>
-        End:
-        {' '}
-        {JSON.stringify(returnedApiData.sortedList)}
+      <h4 style={{ marginTop: '20px', marginBottom: '20px' }}>
+        <strong>
+          End:
+          {' '}
+          {JSON.stringify(returnedApiData.sortedList)}
+        </strong>
       </h4>
     </div>
   );

@@ -22,6 +22,17 @@ body {
   top: 55%;
 }
 
+.title {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+.statement {
+  font-size: 1.625rem;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .dark-font {
   color: #150e60;
 }
@@ -58,6 +69,7 @@ body {
 
 .light-page {
   background-color: #cfe6ff;
+  height: 100%;
 }
 
 /* #7675fd */
@@ -91,14 +103,33 @@ body {
   background-color: #007bff;
 }
 .what-is-discrete-math-img {
-  height: 300px;
-  /* border: dashed;
-  border-color: white; */
+  height: 200px;
   position: center;
   margin-left: auto;
   margin-right: auto;
   display: block;
   margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.math-branch-container {
+  border: 2px solid;
+  border-color: #150e60;
+}
+
+#math-branch-container-one {
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+#math-branch-container-two {
+  margin-left: 20px;
+  margin-right: 40px;
+}
+
+#math-branches-container {
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .what-is-discrete-math-math-branch-text {
@@ -134,11 +165,6 @@ body {
   position: 'relative';
 }
 
-.row-box {
-  /* border: solid;
-  border-color:blue; */
-}
-
 img {
     height: 100%;
     width: auto;
@@ -163,8 +189,6 @@ img {
 }
 
 .scrollable-skip-a-page {
-  /* border: dashed;
-  border-color: orange; */
   width: 100%;
   display: flex;
   justify-content: space-between-start;
@@ -175,15 +199,4 @@ img {
 
 .first-scrollable-skip-a-page {
   height: 100vh;
-}
-
-.pro {
-  /* border: dashed;
-  border-color: orange; */
-  width: 100%;
-  display: flex;
-  justify-content: space-between-start;
-  flex-direction: column;
-  align-items: center;
-  font-size: 24px;
 }

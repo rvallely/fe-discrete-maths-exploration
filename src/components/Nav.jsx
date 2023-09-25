@@ -6,7 +6,7 @@ import React from 'react';
 import SortingAlgorithmType from '../types/SortingAlgorithm';
 
 function Nav() {
-  const fontColour = window.location.pathname === '/' ? 'home-page-font' : 'app-font'
+  const fontColour = window.location.pathname === '/' || window.location.pathname.includes('/sorting-algorithms') ? 'light-font' : 'dark-font'
   return (
     <ul className="nav justify-content-end app-nav">
       <li className="nav-item">

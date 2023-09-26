@@ -73,6 +73,31 @@ function Nav() {
           </strong>
         </a>
       </li>
+      <li className="nav-item">
+        <a
+          className={`nav-link dropdown-toggle app-nav-item ${defaultFontColour}`}
+          href={window.location.href}
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <strong>COMING SOON</strong>
+        </a>
+        <div className="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
+          {['PERMUTATIONS AND COMBINATIONS', 'SET THEORY'].map((topic) => (
+            <p
+              className={`app-nav-item ${fontColours[defaultFontColour]}`}
+              style={{ marginLeft: '15px', marginRight: '15px' }}
+            >
+              <strong>
+                {topic}
+              </strong>
+            </p>
+          ))}
+        </div>
+      </li>
     </ul>
   );
 }

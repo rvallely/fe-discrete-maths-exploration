@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getBaseConversion } from '../../utils/server';
+import PATHS from '../../types/PATHS';
 
 function BaseConverter() {
   const [value, setValue] = useState('');
@@ -101,7 +102,7 @@ function BaseConverter() {
               <div className="mt-4 mb-0 text-center">
                 <Link
                   // eslint-disable-next-line max-len
-                  to={`/base-converter/show-calculation?startVal=${value}&fromBase=${fromBase}&toBase=${toBase}&result=${result.convertedValue}`}
+                  to={`${PATHS.BaseConverterShowCalculation}?startVal=${value}&fromBase=${fromBase}&toBase=${toBase}&result=${result.convertedValue}`}
                   className="btn btn-success text-center"
                   state={{ calcs: result.calcs }}
                 >

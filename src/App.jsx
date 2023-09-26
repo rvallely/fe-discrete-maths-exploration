@@ -5,12 +5,14 @@ import Home from './components/Home';
 import Nav from './components/Nav';
 import BaseConverter from './components/BaseConverter/BaseConverter';
 import ShowCalculation from './components/BaseConverter/ShowCalculation';
-import SortingAlgorithmHome from './components/SortingAlgorithms/SortingAlgorithmHome';
+// import SortingAlgorithmHome from './components/SortingAlgorithms/SortingAlgorithmHome';
 import SortingAlgorithmType from './types/SortingAlgorithm';
 import SortingAlgorithm from './components/SortingAlgorithms/SortingAlgorithm';
 import PermutationsAndCombinations from './components/PermutationsAndCombinations/PermutationsAndCombinations';
 import SummationCalculator from './components/SummationCalculator/SummationCalculator';
 import WhatIsDiscreteMath from './components/WhatIsDiscreteMath';
+import NotFound from './components/NotFound';
+import PATHS from './types/PATHS';
 
 function App() {
   return (
@@ -18,14 +20,14 @@ function App() {
       <div className="App">
         <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/what-is-discrete-math" element={<WhatIsDiscreteMath />} />
-          <Route path="/base-converter" element={<BaseConverter />} />
-          <Route path="/base-converter/show-calculation" element={<ShowCalculation />} />
-          <Route path="/summation-calculator" element={<SummationCalculator />} />
-          <Route path="/sorting-algorithms" element={<SortingAlgorithmHome />} />
+          <Route path={PATHS.Home} element={<Home />} />
+          <Route path={PATHS.WhatIsDiscreteMath} element={<WhatIsDiscreteMath />} />
+          <Route path={PATHS.BaseConverter} element={<BaseConverter />} />
+          <Route path={PATHS.BaseConverterShowCalculation} element={<ShowCalculation />} />
+          <Route path={PATHS.SummationCalculator} element={<SummationCalculator />} />
+          {/* <Route path={PATHS.SortingAlgorithmHome} element={<SortingAlgorithmHome />} /> */}
           <Route
-            path="/sorting-algorithms/bubble-sort"
+            path={PATHS.SortingAlgorithmBubbleSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.BUBBLE_SORT.name}
@@ -37,7 +39,7 @@ function App() {
 )}
           />
           <Route
-            path="/sorting-algorithms/bubble-sort-faster"
+            path={PATHS.SortingAlgorithmBubbleSortFaster}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.BUBBLE_SORT_FASTER.name}
@@ -49,7 +51,7 @@ function App() {
 )}
           />
           <Route
-            path="/sorting-algorithms/insertion-sort"
+            path={PATHS.SortingAlgorithmInsertionSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.INSERTION_SORT.name}
@@ -61,7 +63,7 @@ function App() {
 )}
           />
           <Route
-            path="/sorting-algorithms/merge-sort"
+            path={PATHS.SortingAlgorithmMergeSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.MERGE_SORT.name}
@@ -73,7 +75,7 @@ function App() {
 )}
           />
           <Route
-            path="/sorting-algorithms/quick-sort"
+            path={PATHS.SortingAlgorithmQuickSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.QUICK_SORT.name}
@@ -85,7 +87,7 @@ function App() {
 )}
           />
           <Route
-            path="/sorting-algorithms/selection-sort"
+            path={PATHS.SortingAlgorithmSelectionSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.SELECTION_SORT.name}
@@ -96,7 +98,8 @@ function App() {
               />
 )}
           />
-          <Route path="/permutations-and-combinations" element={<PermutationsAndCombinations />} />
+          <Route path={PATHS.PermutationsAndCombinations} element={<PermutationsAndCombinations />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </BrowserRouter>

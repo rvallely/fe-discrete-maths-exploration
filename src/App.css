@@ -27,8 +27,11 @@ body {
   margin-bottom: 20px;
 }
 
-.statement {
+.statement-font-size {
   font-size: 1.625rem;
+}
+
+.statement-margins {
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -47,7 +50,7 @@ body {
 }
 
 .app-nav-item {
-  font-size: 31px;
+  font-size: 2rem;
 }
 
 .app-nav {
@@ -56,9 +59,15 @@ body {
   left: 0;
   width: 100%;
   z-index: 100;
-  /* border:dashed; */
 }
 
+.nav li a:hover {
+  color: #007FFF;
+}
+
+.selected-nav-item-font-color {
+  color: #007FFF;
+}
 .fixed-page {
   position: fixed;
 }
@@ -158,8 +167,6 @@ body {
 .node-diagram-container { 
   height: calc(100% - 44.50px - 44.50px);
   margin: 30;
-  /* border: 'dashed';
-  border-color: 'yellow'; */
   position: 'relative';
 }
 

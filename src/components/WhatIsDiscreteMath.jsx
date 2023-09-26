@@ -12,7 +12,7 @@ function WhatIsDiscreteMath() {
               What is Discrete Math?
             </strong>
           </h1>
-          <p className="statement">
+          <p className="statement-font-size statement-margins">
             <strong>
               Let&apos;s take a look at what it isn&apos;t, to find out what it is. Mathematics can be broadly
               categorized into two main branches; Continuous and Discrete.
@@ -38,7 +38,7 @@ function WhatIsDiscreteMath() {
               CONTINUOUS MATHEMATICS
             </strong>
           </h2>
-          <p className="what-is-discrete-math-math-branch-text statement">
+          <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
             Continuous Mathematics deals with things that change smoothly and continuously. It&apos;s the study of
             situations that have an infinite number of possibilities between two points. An example would be
             describing the continuous change in your position as you move through a city over time.
@@ -62,7 +62,7 @@ function WhatIsDiscreteMath() {
               DISCRETE MATHEMATICS
             </strong>
           </h2>
-          <p className="what-is-discrete-math-math-branch-text statement">
+          <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
             Discrete Mathematics concerns the study of mathematical structures that are distinct and separable. It is
             suited to solving problems with finite or countable possibilities. An example would be finding the
             shortest path from one point to another in a city.
@@ -74,7 +74,7 @@ function WhatIsDiscreteMath() {
       </div>
       <div className="row">
         <div className="col-xl text-center">
-          <p className="statement">
+          <p className="statement-font-size statement-margins">
             <strong>
               Generally speaking, continuous data is measured and discrete data is counted.
             </strong>

@@ -10,7 +10,7 @@ function renderCorrectAlgorithmProcessDisplay(sortingAlgorithmName, returnedApiD
   switch (sortingAlgorithmName) {
     case SortingAlgorithmType.BUBBLE_SORT.name:
       correctAlgorithmProcessDisplay = (
-        <table className="table table-bordered table-responsive sorting-algorithm-process-table">
+        <table className="table table-bordered table-responsive">
           <thead className="table-active">
             <tr key="bubble-sort-process-columns">
               <th scope="col">Pass</th>
@@ -34,7 +34,7 @@ function renderCorrectAlgorithmProcessDisplay(sortingAlgorithmName, returnedApiD
       break;
     case SortingAlgorithmType.BUBBLE_SORT_FASTER.name:
       correctAlgorithmProcessDisplay = (
-        <table className="table table-bordered table-responsive sorting-algorithm-process-table">
+        <table className="table table-bordered table-responsive">
           <thead className="table-active">
             <tr>
               <th scope="col">Pass</th>
@@ -191,7 +191,7 @@ function renderCorrectAlgorithmProcessDisplay(sortingAlgorithmName, returnedApiD
       return undefined;
   }
   return (
-    <div className="rounded-box dark-font" style={{ width: 'fit-content' }}>
+    <div className="rounded-box dark-font padding-20" style={{ width: 'fit-content' }}>
       <h4 style={{ marginTop: '20px', marginBottom: '20px' }}>
         <strong>
           Start:

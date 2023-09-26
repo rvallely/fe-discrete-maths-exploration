@@ -1,8 +1,18 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable max-len */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BubbleSortVideo from '../assets/cardboard_work_desks.mp4';
-import bubbleSortFasterIcon from '../assets/bubbleSortFasterIcon.mp4';
+import bubbleSortIcon from '../assets/bubbleSortIcon.png';
+import bubbleSortFasterIcon from '../assets/bubbleSortFasterIcon.png';
+import mergeSortIcon1 from '../assets/mergeSortIcon1.png';
+import mergeSortIcon2 from '../assets/mergeSortIcon2.png';
+import quickSortIcon1 from '../assets/quickSortIcon1.png';
+import quickSortIcon2 from '../assets/quickSortIcon2.png';
+import selectionSortIcon1 from '../assets/selectionSortIcon1.png';
+import selectionSortIcon2 from '../assets/selectionSortIcon2.png';
+import insertionSortIcon1 from '../assets/insertionSortIcon1.png';
+import insertionSortIcon2 from '../assets/insertionSortIcon2.png';
 
 const SortingAlgorithmType = Object.freeze({
   BUBBLE_SORT: {
@@ -10,85 +20,110 @@ const SortingAlgorithmType = Object.freeze({
     description:
   <div className="lead">
     <p>
-      This sorting algorithm works by looking at each two consecutive values in the list, beginning with the values at indices 0 and 1. The values are swapped if they are out of order (left value is bigger than the right value). This process is then repeated with the two consecutive values at indices 1 and 2 in the next stage, 2 and 3 in the stage after that and so on until the end of the list is reached.
+      This sorting algorithm loops through the elements in a list, compares the adjacent elements and swaps them if they are out of order. This process is repeated until no swaps are needed in an entire iteration of the list.
     </p>
-    <br />
-    <p> If a swap was needed in an iteration of the list, the process begins again from comparing the values at indices 0 and 1. Bubble sort continues iterating in this way until no swap was needed in the entirity of an iteration of the list. At this point the list has been sorted into ascending order. If we take N as the number of values in the list, Bubble Sort has an O(N²) time complexity and is considered to be a relatively inefficient algorithm, since as the number of values in the list increases, the steps needed to complete sorting increase dramatically.</p>
+    <p>
+      If N is the number of elements in the list, Bubble Sort has an average time complexity of O(N²) and is considered to be a relatively inefficient algorithm. This is because, as the number of elements in the list increases, the steps potentially needed to complete the sorting process increase dramatically.
+    </p>
   </div>,
     video: BubbleSortVideo,
     pathName: 'bubble-sort',
+    icon: {
+      1: bubbleSortIcon,
+      2: bubbleSortIcon,
+    },
   },
   BUBBLE_SORT_FASTER: {
     name: 'Bubble Sort Faster',
     description:
   <div className="lead">
     <p>
-      Bubble Sort Faster is an optimised Bubble Sort. This sorting algorithm works by looping through each pair of consecutive values in the list (inputList) and swapping them if the left value is bigger than the right value. At the end of each list iteration the value at the last index of inputList is removed and put at the start of another array (sortedList). The value that has been added to sortedList is the largest value in the current form of inputList.
-    </p>
-    <br />
-    <p>
-      Looping through consecutive values and slicing of the largest value continues until no swaps were needed in an iteration of the current form of inputList. At this point what is left of inputList has been sorted and is joined to the start of sortedList to form one ascendingly ordered sorted list.
+      {/* eslint-disable-next-line no-trailing-spaces */}
+      This sorting algorithm is an optimised version of
+      {' '}
+      <Link to="/sorting-algorithms/bubble-sort"> Bubble Sort</Link>
+      . Like Bubble Sort, it loops through the elements in a list, compares the adjacent elements and swaps them if they are out of order. But diverging from Bubble Sort, at the end of each list iteration, the last element is removed from the list and added to the start of a separate sorted list. The processes are repeated until no swaps were needed in an entire iteration of the original list. At this point what is left of the original list is joined to the start of the separate list, to form one fully sorted list.
     </p>
   </div>,
     video: BubbleSortVideo,
     pathName: 'bubble-sort-faster',
-    icon: <video
-      height="60%"
-      loop
-      src={bubbleSortFasterIcon}
-    />,
+    icon: {
+      1: bubbleSortFasterIcon,
+      2: bubbleSortFasterIcon,
+    },
   },
   SELECTION_SORT: {
     name: 'Selection Sort',
     description:
   <div className="lead">
     <p>
-      Selection Sort begins with index 0 of the list and assigns this as the index with the lowest value element (lowestValueIndex). It loops through the remaining elements, comparing their value to the element at lowestValueIndex and reassigning lowestValueIndex if a smaller value is found. At the end of the list iteration, if the lowestValueIndex is not 0, the element at index 0 and the element at lowestValueIndex are swapped. Now the iteration begins at index 1, taking this as lowestValueIndex and repeating the above steps.
+      Selection Sort works by repeatedly finding the smallest element from the unsorted part of a list and moving it to the beginning of the sorted part. The algorithm starts with the entire list considered as unsorted. It goes through the unsorted part of the list to find the smallest element. Once the smallest element is found, it is swapped with the first element of the unsorted part, effectively moving it to the beginning of the sorted part of the list. These steps are repeated for the remaining unsorted portion of the list until the entire list is sorted.
     </p>
-    <br />
     <p>
-      The index from which the iteration begins is incremented by 1 each list iteration, until the start index is the last index of the list, at which point the list has been sorted into ascending order. If we take N as the number of values in the list, Selection Sort has an O(N²) time complexity, which makes it inefficient on large lists and it generally performs worse than Insertion Sort.
+      If we take N as the number of values in the list, Selection Sort has an average time complexity of O(N²), which makes it inefficient for large datasets and it generally performs worse than
+      {' '}
+      <Link to="/sorting-algorithms/insertion-sort">Insertion Sort</Link>
+      .
     </p>
   </div>,
     video: BubbleSortVideo,
     pathName: 'selection-sort',
+    icon: {
+      1: selectionSortIcon1,
+      2: selectionSortIcon2,
+    },
   },
   INSERTION_SORT: {
     name: 'Insertion Sort',
     description:
   <div className="lead">
     <p>
-      Insertion Sort begins at index 1 of the list and temporarily removes this value, leaving a gap. Then from this gap, it iterates backwards through the list comparing each value to the value that has been temporarily removed. If the value in the list is bigger than the number that has been temporarily removed, we shift the number (bigger) number in the list one place to the right. We keep comparing until we find the correct position for the temporarily removed element (reach a number that is equal to or smaller than the number that has been temporarily removed). We repeat this backwards iteration and shifting of elements, until it has been done for every element from index 1 to index numberList.length - 1.
+      Insertion Sort algorithm works by dividing the input list into two parts: a sorted part and an unsorted part. It repeatedly takes an element from the unsorted part and inserts it into its correct position within the sorted part of the array.
+    </p>
+    <p>
+      Insertion Sort starts with the first element of the list considered as the sorted part. The remaining elements are considered as the unsorted part. It takes one element at a time from the unsorted part and compares it with the elements in the sorted part. It then finds the correct position in the sorted part where the element belongs by shifting larger elements to the right. These steps are repeated until all elements from the unsorted part are moved to the sorted part, and the entire list is sorted. Insertion Sort has an avergage and worst case time complexity of O(N²), where N is the number of elements in the list, making it inefficient for large datasets.
     </p>
   </div>,
     video: BubbleSortVideo,
     pathName: 'insertion-sort',
+    icon: {
+      1: insertionSortIcon1,
+      2: insertionSortIcon2,
+    },
   },
   MERGE_SORT: {
     name: 'Merge Sort',
     description:
   <div className="lead">
-    <p>Merge sort works by recursively splitting the original list of numbers into two lists until the resulting lists be divided no more (each list only has one element in it).</p>
-    <br />
-    <p>Then, starting at the beginning of the split list, it takes two adjacent lists and compares the first element of each, removing the smaller element and placing it at the end of a new list. It repeats this comparison with the first element of each of the two adjacent lists until all elements from the two lists have been placed and sorted into a new merged list.</p>
-    <br />
     <p>
-      The sorting process above is repeated for all the adjacent lists on the current level. When they have all been emptied and sorted into merged lists, we repeat the sorting on these lists and so on, until only one element remains which is the fully sorted list.
+      Merge sort is a divide-and-conquer sorting algorithm that works by recursively dividing an unsorted list into smaller sublists until each sublist only contains one element. Then, it recursively takes two adjacent sublists and sorts and merges them together by looking at the first element of each list, eventually  resulting in one fully sorted list.
+    </p>
+    <p>
+      Merge Sort is an efficient sorting alorithm, especially for large datasets and taking N as the number of elements in the list, it has an average time complexity of O(N log N).
     </p>
   </div>,
     video: BubbleSortVideo,
     pathName: 'merge-sort',
+    icon: {
+      1: mergeSortIcon1,
+      2: mergeSortIcon2,
+    },
   },
   QUICK_SORT: {
     name: 'Quick Sort',
     description:
   <div className="lead">
-    <p>Quick Sort works by choosing an element in the list as a &apos;pivot&apos;. Any element can be chosen, so in this example the pivot is always the last element of the list. Each element that is not the pivot is compared to the pivot. If the element is smaller or equal to the pivot, it is given a position of left to the pivot, if it is larger it is given a position of right to the pivot. Then, in the resulting lists, a pivot is chosen and the process repeated until only one element is in the resulting list(s).</p>
-    <br />
-    <p>At this point working from the lowest level values, the list is put back together using the pivot values and their position to their parent pivot value. O(n log n)</p>
+    <p>
+      Quick Sort is a divide-and-conquer sorting algorithm. It works by choosing an element in the list as the &apos;pivot&apos;, iterating through the other elements of the list and adding each element to one of two sublists. One sublist contains elements that are smaller than or equal to the pivot and the other contains the elements that are  greater than the pivot. The process is then performed recursively on the sublists, until only one element remains in each sublist.
+    </p>
+    <p>At this point, working from the lowest level values the list is put back together using the pivot values and their position to their parent pivot value. Taking N as the number of elements in the list, on average Quick Sort has a time complexity of O(N log N), making it one of the fastest sorting algorithms for large datasets. </p>
   </div>,
     video: BubbleSortVideo,
     pathName: 'quick-sort',
+    icon: {
+      1: quickSortIcon1,
+      2: quickSortIcon2,
+    },
   },
 });
 

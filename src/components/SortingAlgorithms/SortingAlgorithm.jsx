@@ -1,27 +1,24 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable jsx-quotes */
-/* eslint-disable react/button-has-type */
-/* eslint-disable no-lone-blocks */
-/* eslint-disable no-unreachable */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable spaced-comment */
-/* eslint-disable indent */
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable max-len */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable jsx-a11y/media-has-caption */
 import React, { useState } from 'react';
 import SortingAlgorithmProcess from './SortingAlgorithmProcess';
 import { getSortedList } from '../../utils/server';
 import lightBgrdDarkDetailDownArrows from '../../assets/arrowsDownLightBlueDark.mp4';
 import lightBgrdDarkDetailUpArrows from '../../assets/arrowsUpLightBlueDark.mp4';
 
+/*
+ * TODO: assign prop-types to validate
+ * https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/prop-types.md
+ */
 function SortingAlgorithm(
   {
-    sortingAlgorithmName, sortingAlgorithmDescription, sortingAlgorithmVideo, sortingAlgorithmPathName, sortingAlgorithmIcon,
+    sortingAlgorithmName,
+    sortingAlgorithmDescription,
+    sortingAlgorithmVideo,
+    sortingAlgorithmPathName,
+    sortingAlgorithmIcons,
   },
 ) {
   const [unsortedNumberList, setUnsortedNumberList] = useState('');
@@ -96,41 +93,56 @@ function SortingAlgorithm(
   function scrollToPage(pageNumber) {
     const page = document.getElementById(`page${pageNumber}`);
     page.scrollIntoView({ behavior: 'smooth' });
-}
+  }
   return (
     <div className="test-body light-page dark-font">
       <div className="scrollable-skip-a-page first-scrollable-skip-a-page content" id="page1">
-      {/* , border: 'dashed', borderColor: 'purple' */}
-          <div className="row" style={{ marginTop: '0', marginRight: '10%', marginLeft: '10%' }}>
-            <h2><strong>{sortingAlgorithmName}</strong></h2>
-            <p>{sortingAlgorithmDescription}</p>
-          </div>
-          <video src={sortingAlgorithmVideo} width="600" height="300" controls="controls" autoPlay={false} style={{ flexGrow: 1 }} />
-          <p><strong>Try it out</strong></p>
+        <div className="row" style={{ marginTop: '0', marginRight: '10%', marginLeft: '10%' }}>
+          <h2><strong>{sortingAlgorithmName}</strong></h2>
+          {sortingAlgorithmDescription}
+        </div>
+        <video
+          src={sortingAlgorithmVideo}
+          width="600"
+          height="50%"
+          controls="controls"
+          autoPlay={false}
+          className="center-item"
+          style={{ flexGrow: 1 }}
+        />
+        <div className="center-item">
+          <p style={{ marginBottom: '0px' }}><strong>Try it out</strong></p>
+        </div>
+        <div className="center-item">
           <video
+            className="scroll-buttons"
+            onClick={(() => scrollToPage(2))}
             src={lightBgrdDarkDetailDownArrows}
-            height='60'
+            height="60"
             autoPlay
             loop
-            onClick={(() => scrollToPage(2))}
+            disablePictureInPicture
           />
+        </div>
       </div>
 
-      <div className="scrollable-skip-a-page content" id="page2">
-        <h2><strong>{sortingAlgorithmName}</strong></h2>
+      <div className="scrollable-skip-a-page content">
+        <h2 id="page2" className="center-item"><strong>{sortingAlgorithmName}</strong></h2>
         <div className="row">
-          <div className="col-xl" id="try-sorting-algorithm">
-            Bubble
+          <div className="col center-item">
+            <img
+              src={sortingAlgorithmIcons[1]}
+              alt="sorting algorithm icon"
+              className="center-item sorting-algorithm-icon"
+            />
           </div>
-          <div className="col-9">
+          <div className="col-5">
             <form
               onSubmit={handleSubmit}
               id="list-sorter"
               className="row justify-content-center my-3 rounded-box dark-font"
-              // style={{ border: 'dashed', borderColor: 'teal' }}
             >
-              {/* , border: 'dashed', borderColor: 'mint' */}
-              <div className="col-lg-6" style={{ width: '100%' }}>
+              <div className="col-lg-6 padding-20 sorting-algorithm-font-size" style={{ width: '100%' }}>
                 <label
                   htmlFor="start-value"
                   className="form-label"
@@ -139,11 +151,12 @@ function SortingAlgorithm(
                   {' '}
 
                 </label>
+                <p className="text-danger text-center">{error}</p>
                 <div className="mb-4 input-group">
                   <span className="input-group-text">🙃</span>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control sorting-algorithm-font-size"
                     id="unsorted-list"
                     placeholder="eg. 2, 10, 9, 6, 8, 1"
                     onChange={(e) => setUnsortedNumberList(e.target.value)}
@@ -151,10 +164,13 @@ function SortingAlgorithm(
                   />
                   <span className="input-group-text">
                     <i
+                      role="button"
+                      tabIndex={0}
                       title="Copy"
-                      className="bi bi-back"
+                      className="bi bi-back sorting-algorithm-font-size"
                       onClick={() => navigator.clipboard.writeText(unsortedNumberList)}
-                      style={{ cursor: 'pointer' }}
+                      onKeyUp={() => navigator.clipboard.writeText(unsortedNumberList)}
+                      style={{ cursor: 'grabbing' }}
                     />
                   </span>
                 </div>
@@ -170,22 +186,23 @@ function SortingAlgorithm(
                     Sorted list:
                   </label>
                   <div className="input-group">
-                    {/* <div className="input-group-prepend"> */}
-                      <span className="input-group-text input-group-prepend">🙂</span>
-                    {/* </div> */}
+                    <span className="input-group-text input-group-prepend">🙂</span>
                     <input
                       disabled
                       type="text"
-                      className="form-control"
+                      className="form-control sorting-algorithm-font-size"
                       id="end-value"
                       value={returnedApiData.sortedList}
                     />
                     <span className="input-group-text">
                       <i
+                        role="button"
+                        tabIndex={0}
                         title="Copy"
                         className="bi bi-back"
                         onClick={() => navigator.clipboard.writeText(returnedApiData.sortedList)}
-                        style={{ cursor: 'pointer' }}
+                        onKeyUp={() => navigator.clipboard.writeText(returnedApiData.sortedList)}
+                        style={{ cursor: 'grabbing' }}
                       />
                     </span>
                   </div>
@@ -194,57 +211,89 @@ function SortingAlgorithm(
                 <label htmlFor="input-size" className="form-label">Input size:</label>
                 <div className="mb-4 input-group">
                   <span className="input-group-text">📏</span>
-                  <input disabled type="text" className="form-control" id="input-size" value={returnedApiData.inputSize} />
+                  <input
+                    disabled
+                    type="text"
+                    className="form-control sorting-algorithm-font-size"
+                    id="input-size"
+                    value={returnedApiData.inputSize}
+                  />
                   <span className="input-group-text">
                     <i
+                      role="button"
+                      tabIndex={0}
                       title="Copy"
                       className="bi bi-back"
                       onClick={() => navigator.clipboard.writeText(returnedApiData.inputSize)}
-                      style={{ cursor: 'pointer' }}
+                      onKeyUp={() => navigator.clipboard.writeText(returnedApiData.inputSize)}
+                      style={{ cursor: 'grabbing' }}
                     />
                   </span>
                 </div>
                 <label htmlFor="time-taken" className="form-label">Time taken:</label>
                 <div className="mb-4 input-group">
                   <span className="input-group-text">⌚</span>
-                  <input disabled type="text" className="form-control" id="time-taken" value={returnedApiData.executionTimeMs} />
+                  <input
+                    disabled
+                    type="text"
+                    className="form-control sorting-algorithm-font-size"
+                    id="time-taken"
+                    value={returnedApiData.executionTimeMs}
+                  />
                   <span className="input-group-text">
                     <i
+                      role="button"
+                      tabIndex={0}
                       title="Copy"
                       className="bi bi-back"
                       onClick={() => navigator.clipboard.writeText(returnedApiData.executionTimeMs)}
-                      style={{ cursor: 'pointer' }}
+                      onKeyUp={() => navigator.clipboard.writeText(returnedApiData.executionTimeMs)}
+                      style={{ cursor: 'grabbing' }}
                     />
                   </span>
                 </div>
               </div>
             </form>
           </div>
-          <div className="col" style={{ border: 'dashed', borderColor: 'blue' }}>
-            bubble
+          <div className="col center-item">
+            <img
+              src={sortingAlgorithmIcons[2]}
+              alt="sorting algorithm icon"
+              className="center-item sorting-algorithm-icon"
+            />
           </div>
         </div>
-        {/* <div className="row"> */}
-          <div className="col-xl text-center">
-            {SortingAlgorithmProcess(
-              sortingAlgoName,
-              returnedApiData,
-            )}
-          </div>
-        {/* </div> */}
+        <div className="col-xl text-center center-item">
+          {SortingAlgorithmProcess(
+            sortingAlgoName,
+            returnedApiData,
+          )}
+        </div>
         <div className="row" style={{ flexGrow: 1 }}>
           <div className="mt-4 mb-0 text-center">
-            <button type="button" onClick={resetForm} className="btn btn-lg text-center mb-2 button dark-button light-font">Reset</button>
+            <button
+              type="button"
+              onClick={resetForm}
+              className="btn btn-lg text-center mb-2 button dark-button light-font"
+            >
+              Reset
+            </button>
           </div>
         </div>
-        <p><strong>Back to top</strong></p>
-        <video
-          src={lightBgrdDarkDetailUpArrows}
-          height='60'
-          autoPlay
-          loop
-          onClick={(() => scrollToPage(1))}
-        />
+        <div className="center-item">
+          <p style={{ marginBottom: '0px' }}><strong>Back to top</strong></p>
+        </div>
+        <div className="center-item">
+          <video
+            className="scroll-buttons"
+            onClick={(() => scrollToPage(1))}
+            src={lightBgrdDarkDetailUpArrows}
+            height="60"
+            autoPlay
+            loop
+            disablePictureInPicture
+          />
+        </div>
       </div>
     </div>
   );

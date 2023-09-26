@@ -32,7 +32,7 @@ function App() {
                 sortingAlgorithmDescription={SortingAlgorithmType.BUBBLE_SORT.description}
                 sortingAlgorithmVideo={SortingAlgorithmType.BUBBLE_SORT.video}
                 sortingAlgorithmPathName={SortingAlgorithmType.BUBBLE_SORT.pathName}
-                sortingAlgorithmIcon={SortingAlgorithmType.BUBBLE_SORT.icon}
+                sortingAlgorithmIcons={SortingAlgorithmType.BUBBLE_SORT.icon}
               />
 )}
           />
@@ -44,7 +44,7 @@ function App() {
                 sortingAlgorithmDescription={SortingAlgorithmType.BUBBLE_SORT_FASTER.description}
                 sortingAlgorithmVideo={SortingAlgorithmType.BUBBLE_SORT_FASTER.video}
                 sortingAlgorithmPathName={SortingAlgorithmType.BUBBLE_SORT_FASTER.pathName}
-                sortingAlgorithmIcon={SortingAlgorithmType.BUBBLE_SORT_FASTER.icon}
+                sortingAlgorithmIcons={SortingAlgorithmType.BUBBLE_SORT_FASTER.icon}
               />
 )}
           />
@@ -56,7 +56,7 @@ function App() {
                 sortingAlgorithmDescription={SortingAlgorithmType.INSERTION_SORT.description}
                 sortingAlgorithmVideo={SortingAlgorithmType.INSERTION_SORT.video}
                 sortingAlgorithmPathName={SortingAlgorithmType.INSERTION_SORT.pathName}
-                sortingAlgorithmIcon={SortingAlgorithmType.INSERTION_SORT.icon}
+                sortingAlgorithmIcons={SortingAlgorithmType.INSERTION_SORT.icon}
               />
 )}
           />
@@ -68,7 +68,7 @@ function App() {
                 sortingAlgorithmDescription={SortingAlgorithmType.MERGE_SORT.description}
                 sortingAlgorithmVideo={SortingAlgorithmType.MERGE_SORT.video}
                 sortingAlgorithmPathName={SortingAlgorithmType.MERGE_SORT.pathName}
-                sortingAlgorithmIcon={SortingAlgorithmType.MERGE_SORT.icon}
+                sortingAlgorithmIcons={SortingAlgorithmType.MERGE_SORT.icon}
               />
 )}
           />
@@ -80,7 +80,7 @@ function App() {
                 sortingAlgorithmDescription={SortingAlgorithmType.QUICK_SORT.description}
                 sortingAlgorithmVideo={SortingAlgorithmType.QUICK_SORT.video}
                 sortingAlgorithmPathName={SortingAlgorithmType.QUICK_SORT.pathName}
-                sortingAlgorithmIcon={SortingAlgorithmType.QUICK_SORT.icon}
+                sortingAlgorithmIcons={SortingAlgorithmType.QUICK_SORT.icon}
               />
 )}
           />
@@ -92,6 +92,7 @@ function App() {
                 sortingAlgorithmDescription={SortingAlgorithmType.SELECTION_SORT.description}
                 sortingAlgorithmVideo={SortingAlgorithmType.SELECTION_SORT.video}
                 sortingAlgorithmPathName={SortingAlgorithmType.SELECTION_SORT.pathName}
+                sortingAlgorithmIcons={SortingAlgorithmType.SELECTION_SORT.icon}
               />
 )}
           />

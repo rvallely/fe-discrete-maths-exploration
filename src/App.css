@@ -70,6 +70,7 @@ body {
 .light-page {
   background-color: #cfe6ff;
   height: 100%;
+  width: 100%;
 }
 
 /* #7675fd */
@@ -146,9 +147,6 @@ body {
   overflow: hidden;
 }
 
-.open {
-}
-
 .red {
   color: red;
 }
@@ -175,9 +173,6 @@ img {
 .test-body {
   margin: 0;
   padding: 0;
-  /* overflow: hidden; */
-  /* border: dashed;
-  border-color: blue; */
   width: fit-content;
 }
 
@@ -194,9 +189,35 @@ img {
   justify-content: space-between-start;
   flex-direction: column;
   align-items: center;
-  /* font-size: 24px; */
 }
 
 .first-scrollable-skip-a-page {
   height: 100vh;
+}
+
+.sorting-algorithm-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sorting-algorithm-icon {
+  width: 80%;
+  height: auto;
+}
+
+.center-item {
+  margin: auto;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+
+.sorting-algorithm-font-size {
+  font-size: 1.125rem;
+}
+
+.scroll-buttons:hover {
+  cursor: pointer;
 }

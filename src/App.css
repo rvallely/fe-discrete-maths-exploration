@@ -228,3 +228,23 @@ img {
 .scroll-buttons:hover {
   cursor: pointer;
 }
+
+#cute-dog {
+  width: 100%;
+  height: auto;
+}
+
+.align-contents-center {
+  display: flex;
+  align-items: center; /* Vertical alignment */
+  justify-content: center; /* Horizontal alignment */
+  height: 100%; /* Ensure the container takes up the full height */
+}
+.text-align-center {
+  text-align: center;
+}
+
+/* .anchor-to-bottom {
+  position: relative;
+  bottom: 0;
+} */

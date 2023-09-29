@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/media-has-caption */
-/* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import BubbleSortVideo from '../assets/cardboard_work_desks.mp4';
@@ -28,7 +26,7 @@ const SortingAlgorithmType = Object.freeze({
     </p>
   </div>,
     video: BubbleSortVideo,
-    pathName: PATHS.SortingAlgorithmBubbleSort,
+    pathName: PATHS.SortingAlgorithms.subPaths.SortingAlgorithmBubbleSort,
     icon: {
       1: bubbleSortIcon,
       2: bubbleSortIcon,
@@ -42,12 +40,12 @@ const SortingAlgorithmType = Object.freeze({
       {/* eslint-disable-next-line no-trailing-spaces */}
       This sorting algorithm is an optimised version of
       {' '}
-      <Link to={PATHS.SortingAlgorithmBubbleSort}> Bubble Sort</Link>
+      <Link to={PATHS.SortingAlgorithms.subPaths.SortingAlgorithmBubbleSort}> Bubble Sort</Link>
       . Like Bubble Sort, it loops through the elements in a list, compares the adjacent elements and swaps them if they are out of order. But diverging from Bubble Sort, at the end of each list iteration, the last element is removed from the list and added to the start of a separate sorted list. The processes are repeated until no swaps were needed in an entire iteration of the original list. At this point what is left of the original list is joined to the start of the separate list, to form one fully sorted list.
     </p>
   </div>,
     video: BubbleSortVideo,
-    pathName: PATHS.SortingAlgorithmBubbleSortFaster,
+    pathName: PATHS.SortingAlgorithms.subPaths.SortingAlgorithmBubbleSortFaster,
     icon: {
       1: bubbleSortFasterIcon,
       2: bubbleSortFasterIcon,
@@ -63,12 +61,12 @@ const SortingAlgorithmType = Object.freeze({
     <p>
       If we take N as the number of values in the list, Selection Sort has an average time complexity of O(N²), which makes it inefficient for large datasets and it generally performs worse than
       {' '}
-      <Link to={PATHS.SortingAlgorithmInsertionSort}>Insertion Sort</Link>
+      <Link to={PATHS.SortingAlgorithms.subPaths.SortingAlgorithmInsertionSort}>Insertion Sort</Link>
       .
     </p>
   </div>,
     video: BubbleSortVideo,
-    pathName: PATHS.SortingAlgorithmSelectionSort,
+    pathName: PATHS.SortingAlgorithms.subPaths.SortingAlgorithmSelectionSort,
     icon: {
       1: selectionSortIcon1,
       2: selectionSortIcon2,
@@ -86,7 +84,7 @@ const SortingAlgorithmType = Object.freeze({
     </p>
   </div>,
     video: BubbleSortVideo,
-    pathName: PATHS.SortingAlgorithmInsertionSort,
+    pathName: PATHS.SortingAlgorithms.subPaths.SortingAlgorithmInsertionSort,
     icon: {
       1: insertionSortIcon1,
       2: insertionSortIcon2,
@@ -104,7 +102,7 @@ const SortingAlgorithmType = Object.freeze({
     </p>
   </div>,
     video: BubbleSortVideo,
-    pathName: PATHS.SortingAlgorithmMergeSort,
+    pathName: PATHS.SortingAlgorithms.subPaths.SortingAlgorithmMergeSort,
     icon: {
       1: mergeSortIcon1,
       2: mergeSortIcon2,
@@ -120,7 +118,7 @@ const SortingAlgorithmType = Object.freeze({
     <p>At this point, working from the lowest level values the list is put back together using the pivot values and their position to their parent pivot value. Taking N as the number of elements in the list, on average Quick Sort has a time complexity of O(N log N), making it one of the fastest sorting algorithms for large datasets. </p>
   </div>,
     video: BubbleSortVideo,
-    pathName: PATHS.SortingAlgorithmQuickSort,
+    pathName: PATHS.SortingAlgorithms.subPaths.SortingAlgorithmQuickSort,
     icon: {
       1: quickSortIcon1,
       2: quickSortIcon2,

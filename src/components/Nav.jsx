@@ -6,9 +6,11 @@ function Nav() {
   const currentLocation = window.location.pathname;
   const defaultFontColour = window.location.pathname === '/home' ? 'light-font' : 'dark-font';
 
-  const fontColours = Object.values(PATHS).reduce((acc, navItem) => ({
+  console.log(currentLocation, '<< current location');
+  console.log('Object.values(PATHS).map(({ mainPath }) => mainPath): ', Object.values(PATHS).map(({ mainPath }) => mainPath))
+  const fontColours = Object.values(PATHS).map(({ mainPath }) => mainPath).reduce((acc, navItem) => ({
     ...acc,
-    [navItem]: (currentLocation === navItem) || (navItem === PATHS.SortingAlgorithmHome && currentLocation.includes(
+    [navItem]: (currentLocation === navItem) || (navItem === PATHS.SortingAlgorithms.mainPath && currentLocation.includes(
       navItem,
     ))
       ? 'selected-nav-item-font-color'
@@ -18,7 +20,7 @@ function Nav() {
   return (
     <ul className="nav justify-content-end app-nav">
       <li className="nav-item">
-        <a className={`nav-link app-nav-item ${fontColours[PATHS.Home]}`} href={PATHS.Home}>
+        <a className={`nav-link app-nav-item ${fontColours[PATHS.Home.mainPath]}`} href={PATHS.Home.mainPath}>
           <strong>D</strong>
           M
           {' '}
@@ -27,8 +29,8 @@ function Nav() {
       </li>
       <li className="nav-item">
         <a
-          className={`nav-link app-nav-item ${fontColours[PATHS.WhatIsDiscreteMath]}`}
-          href={PATHS.WhatIsDiscreteMath}
+          className={`nav-link app-nav-item ${fontColours[PATHS.WhatIsDiscreteMath.mainPath]}`}
+          href={PATHS.WhatIsDiscreteMath.mainPath}
         >
           <strong>
             WHAT IS DISCRETE MATH?
@@ -37,7 +39,7 @@ function Nav() {
       </li>
       <li className="nav-item">
         <a
-          className={`nav-link dropdown-toggle app-nav-item ${fontColours[PATHS.SortingAlgorithmHome]}`}
+          className={`nav-link dropdown-toggle app-nav-item ${fontColours[PATHS.SortingAlgorithms.mainPath]}`}
           href={window.location.href}
           id="navbarDropdown"
           role="button"
@@ -64,14 +66,39 @@ function Nav() {
         </div>
       </li>
       <li className="nav-item">
-        <a
+        {/* <a
           className={`nav-link app-nav-item ${fontColours[PATHS.BaseConverter]}`}
           href={PATHS.BaseConverter}
         >
           <strong>
             BASE CONVERTER
           </strong>
+        </a> */}
+        <a
+          className={`nav-link dropdown-toggle app-nav-item ${fontColours[PATHS.NumberBases.mainPath]}`}
+          href={window.location.href}
+          id="navbarDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <strong>NUMBER BASES</strong>
         </a>
+        <div className="dropdown-menu bg-white" aria-labelledby="navbarDropdown">
+          {Object.entries(PATHS.NumberBases.subPaths).map(([name, path]) => {
+            return (
+              <a
+                className={`dropdown-item app-nav-item ${fontColours[path]}`}
+                href={path}
+              >
+                <strong>
+                  {name.toUpperCase()}
+                </strong>
+              </a>
+            );
+          })}
+        </div>
       </li>
       <li className="nav-item">
         <a

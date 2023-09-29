@@ -3,7 +3,7 @@ import './App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/Home';
 import Nav from './components/Nav';
-import BaseConverter from './components/BaseConverter/BaseConverter';
+// import BaseConverter from './components/BaseConverter/BaseConverter';
 import ShowCalculation from './components/BaseConverter/ShowCalculation';
 // import SortingAlgorithmHome from './components/SortingAlgorithms/SortingAlgorithmHome';
 import SortingAlgorithmType from './types/SortingAlgorithm';
@@ -12,6 +12,7 @@ import PermutationsAndCombinations from './components/PermutationsAndCombination
 import SummationCalculator from './components/SummationCalculator/SummationCalculator';
 import WhatIsDiscreteMath from './components/WhatIsDiscreteMath';
 import NotFound from './components/NotFound';
+import NumberBasesPrimer from './components/NumberBases/Primer/NumberBasesPrimer';
 import PATHS from './types/PATHS';
 
 function App() {
@@ -20,14 +21,15 @@ function App() {
       <div className="App">
         <Nav />
         <Routes>
-          <Route path={PATHS.Home} element={<Home />} />
-          <Route path={PATHS.WhatIsDiscreteMath} element={<WhatIsDiscreteMath />} />
-          <Route path={PATHS.BaseConverter} element={<BaseConverter />} />
-          <Route path={PATHS.BaseConverterShowCalculation} element={<ShowCalculation />} />
-          <Route path={PATHS.SummationCalculator} element={<SummationCalculator />} />
+          {console.log('PATHS.Home.mainPath: ', PATHS.Home.mainPath)}
+          <Route path={PATHS.Home.mainPath} element={<Home />} />
+          <Route path={PATHS.WhatIsDiscreteMath.mainPath} element={<WhatIsDiscreteMath />} />
+          <Route path={PATHS.NumberBases.subPaths.primer} element={<NumberBasesPrimer />} />
+          {/* <Route path={PATHS.BaseConverterShowCalculation.mainPath} element={<ShowCalculation />} />
+          <Route path={PATHS.SummationCalculator.mainPath} element={<SummationCalculator />} /> */}
           {/* <Route path={PATHS.SortingAlgorithmHome} element={<SortingAlgorithmHome />} /> */}
           <Route
-            path={PATHS.SortingAlgorithmBubbleSort}
+            path={PATHS.SortingAlgorithms.subPaths.SortingAlgorithmBubbleSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.BUBBLE_SORT.name}
@@ -39,7 +41,7 @@ function App() {
 )}
           />
           <Route
-            path={PATHS.SortingAlgorithmBubbleSortFaster}
+            path={PATHS.SortingAlgorithms.subPaths.SortingAlgorithmBubbleSortFaster}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.BUBBLE_SORT_FASTER.name}
@@ -51,7 +53,7 @@ function App() {
 )}
           />
           <Route
-            path={PATHS.SortingAlgorithmInsertionSort}
+            path={PATHS.SortingAlgorithms.subPaths.SortingAlgorithmInsertionSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.INSERTION_SORT.name}
@@ -63,7 +65,7 @@ function App() {
 )}
           />
           <Route
-            path={PATHS.SortingAlgorithmMergeSort}
+            path={PATHS.SortingAlgorithms.subPaths.SortingAlgorithmMergeSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.MERGE_SORT.name}
@@ -75,7 +77,7 @@ function App() {
 )}
           />
           <Route
-            path={PATHS.SortingAlgorithmQuickSort}
+            path={PATHS.SortingAlgorithms.subPaths.SortingAlgorithmQuickSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.QUICK_SORT.name}
@@ -86,8 +88,9 @@ function App() {
               />
 )}
           />
+          {console.log(PATHS.SortingAlgorithms.subPaths.SortingAlgorithmSelectionSort, '<<< selection sort path')}
           <Route
-            path={PATHS.SortingAlgorithmSelectionSort}
+            path={PATHS.SortingAlgorithms.subPaths.SortingAlgorithmSelectionSort}
             element={(
               <SortingAlgorithm
                 sortingAlgorithmName={SortingAlgorithmType.SELECTION_SORT.name}

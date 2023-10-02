@@ -17,4 +17,4 @@ export const getBaseConversion = async (
 export const getSortedList = async (
   body,
   sortingAlgorithmPathName,
-) => discreteMathsServer.post(`/sorting-algorithms/${sortingAlgorithmPathName}`, body).then((data) => data.data);
+) => discreteMathsServer.post(sortingAlgorithmPathName, body).then((data) => data.data);

@@ -2,14 +2,14 @@ import React from 'react';
 import infinityContinuousSymbol from '../assets/infinityContinuousSymbol.png';
 import vennDiagramDiscreteSymbol from '../assets/vennDiagramDiscreteSymbol.png';
 
-function WhatIsDiscreteMath() {
+function WhatIsDiscreteMaths() {
   return (
     <div className="container-fluid page light-page dark-font content">
       <div className="row">
         <div className="col-xl text-center">
           <h1 className="title">
             <strong>
-              What is Discrete Math?
+              What is Discrete Maths?
             </strong>
           </h1>
           <p className="statement-font-size statement-margins">
@@ -85,4 +85,4 @@ function WhatIsDiscreteMath() {
   );
 }
 
-export default WhatIsDiscreteMath;
+export default WhatIsDiscreteMaths;

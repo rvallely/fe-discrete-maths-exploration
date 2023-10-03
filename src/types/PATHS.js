@@ -2,8 +2,8 @@ const PATHS = Object.freeze({
   Home: {
     mainPath: '/home',
   },
-  WhatIsDiscreteMath: {
-    mainPath: '/what-is-discrete-math',
+  WhatIsDiscreteMaths: {
+    mainPath: '/what-is-discrete-maths',
   },
   NumberBases: {
     mainPath: '/number-bases',

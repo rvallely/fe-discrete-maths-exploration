@@ -29,11 +29,11 @@ function Nav() {
       </li>
       <li className="nav-item">
         <a
-          className={`nav-link app-nav-item ${fontColours[PATHS.WhatIsDiscreteMath.mainPath]}`}
-          href={PATHS.WhatIsDiscreteMath.mainPath}
+          className={`nav-link app-nav-item ${fontColours[PATHS.WhatIsDiscreteMaths.mainPath]}`}
+          href={PATHS.WhatIsDiscreteMaths.mainPath}
         >
           <strong>
-            WHAT IS DISCRETE MATH?
+            WHAT IS DISCRETE MATHS?
           </strong>
         </a>
       </li>

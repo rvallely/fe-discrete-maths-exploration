@@ -46,14 +46,15 @@ function NumberBasesPrimer(params) {
         </div>
         <div
             id=""
-            className="row align-contents-center number-base-section-margins"
+            className="row align-contents-center number-base-section-margins real-world-use-example rounded-box"
         >
             <div
             id="math-branch-container-one"
             className="col-sm"
             >
-                <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
-            It's easy to grasp that language is a code. The animal we represent with the word 'dog' in English can also be represented as ‘perro’, ‘chien’, ‘Hund’, ‘犬’ (inu), ‘собака’ (sobaka) in Spanish, French, German, Japanese and Russian respectively. We don't question the value they represent, we instead accept the same value has different representations.
+                <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins"
+                >
+            It's easy to grasp that language is a code. The animal we represent with the word 'dog' in English can also be represented as &apos;perro&apos;, &apos;chien&apos;, &apos;Hund&apos;, &apos;犬&apos; (inu), &apos;собака&apos; (sobaka) in Spanish, French, German, Japanese and Russian respectively. We don't question the value they represent, we instead accept the same value has different representations.
             </p>
             </div>
             <div
@@ -79,7 +80,7 @@ function NumberBasesPrimer(params) {
         
         <div
             id=""
-            className="row align-contents-center number-base-section-margins"
+            className="row align-contents-center number-base-section-margins real-world-use-example rounded-box"
         >
             <div
             id="math-branch-container-one"
@@ -104,13 +105,13 @@ function NumberBasesPrimer(params) {
         <div className='number-base-section-margins'>
             <p className='statement-font-size statement-margins text-align-center'>
                 <strong>
-                    So, why does these representations look so strange?
+                    So, why do these representations look so strange? Well, because it's something new to most of us.
                 </strong>
             </p>
         </div>
-        <div className='number-base-section-margins statement-margins'>
+        <div className='number-base-section-margins statement-margins real-world-use-example rounded-box'>
             <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
-            Well, because it's something new to most of us. Unlike spoken or written language, almost everyone on the planet uses the same number system, the decimal number system, which uses only the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9. Most civilisations have based their number systems around ten (or sometimes five), because our species used its fingers to count, of which most of us have ten in total with five on each hand.
+             Unlike spoken or written language, almost everyone on the planet uses the same number system, the decimal number system, which uses only the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9. Most civilisations have based their number systems around ten (or sometimes five), because our species used its fingers to count, of which most of us have ten in total with five on each hand.
             </p>
             <img
                 src={countingOnHandsHorizontal}
@@ -122,16 +123,16 @@ function NumberBasesPrimer(params) {
                 It's no coincidence the word digit can refer to our fingers or toes, as well as numbers, or that the words five and fist have similar etymological roots.
             </p>
         </div>
-        <div className='number-base-section-margins'>
+        <div className='number-base-section-margins '>
             <p className='statement-font-size statement-margins text-align-center'>
                 <strong>
                 But there's nothing special about 10. 
                 </strong>
             </p>
         </div>
-        <div className='number-base-section-margins statement-margins'>
+        <div className='number-base-section-margins statement-margins real-world-use-example rounded-box'>
             <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
-            Had our species developed with 8 fingers like the Na'vi from Avatar, our ways of counting would probably have been different. It’s clearer to understand this different number system, if we pronounce the numbers as ‘one, two, three, four, five, six, seven, one zero, one one, one two etc. 
+            Had our species developed with 8 fingers like the Na'vi from Avatar, our ways of counting would probably have been different. It&apos;s clearer to understand this different number system, if we pronounce the numbers as one, two, three, four, five, six, seven, one zero, one one, one two etc. 
             </p>
             <img
                 src={avatarHandCountingHorizontal}
@@ -140,8 +141,9 @@ function NumberBasesPrimer(params) {
             >
             </img>
             <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
-            It’s simply a repeating pattern that is confined by the number of available digits in the system. The base ten system has ten digits, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. The base eight system has eight available digits, 0, 1, 2, 3, 4, 5, 6, 7.
+            It&apos;s simply a repeating pattern that is confined by the number of available characters in the system. The base ten system has ten characters (0-9). We begin with 0 and count 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, but as there are no more characters in the system, we start counting again at 0 and preceed each number with 1: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19. Now we've run out of characters again so we repeat the count with the character after 1 which is 2: 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 and so on. 
             </p>
+            <p  className='what-is-discrete-math-math-branch-text statement-font-size statement-margins'>The base eight system has eight available digits, 0, 1, 2, 3, 4, 5, 6, 7. Look at how the number system is formed from this repeating pattern below.</p>
             <img
                 src={base8RepeatingTable}
                 alt="Na'vi hands and feet (4 digits on each) counting in base eight from 1-20"
@@ -150,7 +152,7 @@ function NumberBasesPrimer(params) {
             >
             </img>
         </div>
-        <div style={{ backgroundColor: '#FDFFF4' }} className='rounded-box'>
+        <div style={{ backgroundColor: '#FDFFF4' }} className='rounded-box rounded-box-shadow'>
             <form onSubmit={handleSubmit} id="number-base-system-form" className='center-item'style={{ width: '40%'}}>
                 <div className="mb-4 mt-4 input-group statement-font-size" style={{ width: '100%' }}>
                     <label htmlFor="base" className="form-label">Enter in a base between 2 and 36 to see how the numbers in the system are formed through a repeating pattern:</label>

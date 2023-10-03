@@ -90,13 +90,16 @@ body {
 }
 .rounded-box {
   border: solid;
-  border-color: #150e60;
-  box-shadow: 10px 5px #150e60;
-  background-color: #fdfff4;
   border-top-right-radius:15px;
   border-top-left-radius:15px;
   border-bottom-right-radius:15px;
   border-bottom-left-radius:15px;
+}
+
+.rounded-box-shadow {
+  border-color: #150e60;
+  box-shadow: 10px 5px #150e60;
+  background-color: #fdfff4;
 }
 
 .button {
@@ -229,9 +232,14 @@ img {
   cursor: pointer;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 #cute-dog {
   width: 100%;
   height: auto;
+  margin: 2%;
 }
 
 .number-base-horizontal-image {
@@ -257,4 +265,89 @@ img {
 .number-base-section-margins {
   margin-top: 2%;
   margin-bottom: 2%;
+}
+
+.circle {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+}
+
+#segmented-circle {
+  width: 500px;
+  height: 500px;
+  border-radius: 1000px;
+  background: conic-gradient(
+    #FF0000 0deg 60deg,      
+    #FFA500 60deg 120deg,  
+    #FFFF00 120deg 180deg,  
+    #008000 180deg 240deg,
+    #0000FF 240deg 300deg,
+    #800080 300deg 360deg);
+}
+
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+
+
+
+.underline {
+  text-decoration: underline;
+}
+
+.drift-in-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  flex-grow: 1;
+  height: 50vh;
+  overflow: visible;
+}
+
+.drift-in-image-container img {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.animated {
+  height: 90%;
+  width: auto;
+  position: absolute;
+  bottom: 2%;
+  left: -50%;
+  animation: driftInFromLeftAnimation 10s ease-in-out infinite;
+}
+
+.unanimated {
+  height: 90%;
+  width: auto;
+  position: absolute;
+  bottom: 2%;
+  left: 10%;
+}
+
+@keyframes driftInFromLeftAnimation {
+  0%, 100% {
+    left: -50%; 
+}
+50% {
+    left: 10%; 
+}
+}
+
+.real-world-use-example {
+  background-color: #c5d3ff;
+  border: solid;
+  border-color: #150e60;
+  border-width: 2px;
+  margin-left: 2%;
+  margin-right: 2%;
 }

@@ -110,7 +110,7 @@ function NumberBasesPrimer(params) {
             </p>
         </div>
         <div className='number-base-section-margins statement-margins real-world-use-example rounded-box'>
-            <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
+            <p className="what-is-discrete-math-math-branch-text statement-font-size" style={{ padding: '2%'}}>
              Unlike spoken or written language, almost everyone on the planet uses the same number system, the decimal number system, which uses only the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9. Most civilisations have based their number systems around ten (or sometimes five), because our species used its fingers to count, of which most of us have ten in total with five on each hand.
             </p>
             <img
@@ -119,7 +119,7 @@ function NumberBasesPrimer(params) {
                 className="number-base-horizontal-image center-item"
             >
             </img>
-            <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
+            <p className="what-is-discrete-math-math-branch-text statement-font-size" style={{ padding: '2%'}}>
                 It's no coincidence the word digit can refer to our fingers or toes, as well as numbers, or that the words five and fist have similar etymological roots.
             </p>
         </div>
@@ -131,7 +131,7 @@ function NumberBasesPrimer(params) {
             </p>
         </div>
         <div className='number-base-section-margins statement-margins real-world-use-example rounded-box'>
-            <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
+            <p className="what-is-discrete-math-math-branch-text statement-font-size" style={{ padding: '2%'}}>
             Had our species developed with 8 fingers like the Na'vi from Avatar, our ways of counting would probably have been different. It&apos;s clearer to understand this different number system, if we pronounce the numbers as one, two, three, four, five, six, seven, one zero, one one, one two etc. 
             </p>
             <img
@@ -140,10 +140,10 @@ function NumberBasesPrimer(params) {
                 className="number-base-horizontal-image center-item"
             >
             </img>
-            <p className="what-is-discrete-math-math-branch-text statement-font-size statement-margins">
+            <p className="what-is-discrete-math-math-branch-text statement-font-size" style={{ padding: '2%'}}>
             It&apos;s simply a repeating pattern that is confined by the number of available characters in the system. The base ten system has ten characters (0-9). We begin with 0 and count 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, but as there are no more characters in the system, we start counting again at 0 and preceed each number with 1: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19. Now we've run out of characters again so we repeat the count with the character after 1 which is 2: 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 and so on. 
             </p>
-            <p  className='what-is-discrete-math-math-branch-text statement-font-size statement-margins'>The base eight system has eight available digits, 0, 1, 2, 3, 4, 5, 6, 7. Look at how the number system is formed from this repeating pattern below.</p>
+            <p  className='what-is-discrete-math-math-branch-text statement-font-size' style={{ padding: '2%'}}>The base eight system has eight available digits, 0, 1, 2, 3, 4, 5, 6, 7. Look at how the number system is formed from this repeating pattern below.</p>
             <img
                 src={base8RepeatingTable}
                 alt="Na'vi hands and feet (4 digits on each) counting in base eight from 1-20"

@@ -3,19 +3,15 @@ import './App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './components/Home';
 import Nav from './components/Nav';
-// import BaseConverter from './components/BaseConverter/BaseConverter';
-import ShowCalculation from './components/BaseConverter/ShowCalculation';
-// import SortingAlgorithmHome from './components/SortingAlgorithms/SortingAlgorithmHome';
 import SortingAlgorithmType from './types/SortingAlgorithm';
 import SortingAlgorithm from './components/SortingAlgorithms/SortingAlgorithm';
 import PermutationsAndCombinations from './components/PermutationsAndCombinations/PermutationsAndCombinations';
-import SummationCalculator from './components/SummationCalculator/SummationCalculator';
 import WhatIsDiscreteMaths from './components/WhatIsDiscreteMaths';
 import NotFound from './components/NotFound';
 import NumberBasesPrimer from './components/NumberBases/Primer/NumberBasesPrimer';
 import PATHS from './types/PATHS';
 import RealWorldUses from './components/NumberBases/RealWorldUses';
-import BaseConverter from './components/BaseConverter/BaseConverter';
+import BaseConverter from './components/NumberBases/BaseConverter/BaseConverter';
 
 function App() {
   return (
@@ -29,9 +25,6 @@ function App() {
           <Route path={PATHS.NumberBases.subPaths.primer} element={<NumberBasesPrimer />} />
           <Route path={PATHS.NumberBases.subPaths['Real World Uses']} element={<RealWorldUses />} />
           <Route path={PATHS.NumberBases.subPaths['Base Converter']} element={<BaseConverter />} />
-          {/* <Route path={PATHS.BaseConverterShowCalculation.mainPath} element={<ShowCalculation />} />
-          <Route path={PATHS.SummationCalculator.mainPath} element={<SummationCalculator />} /> */}
-          {/* <Route path={PATHS.SortingAlgorithmHome} element={<SortingAlgorithmHome />} /> */}
           <Route
             path={PATHS.SortingAlgorithms.subPaths.SortingAlgorithmBubbleSort}
             element={(

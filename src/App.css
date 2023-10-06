@@ -348,6 +348,8 @@ img {
   border: solid;
   border-color: #150e60;
   border-width: 2px;
-  margin-left: 2%;
-  margin-right: 2%;
+}
+
+.text-align-left {
+  text-align: left;
 }

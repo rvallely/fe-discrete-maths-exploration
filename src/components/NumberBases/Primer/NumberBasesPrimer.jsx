@@ -143,12 +143,12 @@ function NumberBasesPrimer(params) {
             <p className="what-is-discrete-math-math-branch-text statement-font-size" style={{ padding: '2%'}}>
             It&apos;s simply a repeating pattern that is confined by the number of available characters in the system. The base ten system has ten characters (0-9). We begin with 0 and count 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, but as there are no more characters in the system, we start counting again at 0 and preceed each number with 1: 10, 11, 12, 13, 14, 15, 16, 17, 18, 19. Now we've run out of characters again so we repeat the count with the character after 1 which is 2: 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 and so on. 
             </p>
-            <p  className='what-is-discrete-math-math-branch-text statement-font-size' style={{ padding: '2%'}}>The base eight system has eight available digits, 0, 1, 2, 3, 4, 5, 6, 7. Look at how the number system is formed from this repeating pattern below.</p>
+            <p  className='what-is-discrete-math-math-branch-text statement-font-size' style={{ paddingRight: '2%', paddingLeft: '2%'}}>The base eight system has eight available digits, 0, 1, 2, 3, 4, 5, 6, 7. Look at how the number system is formed from this repeating pattern below.</p>
             <img
                 src={base8RepeatingTable}
                 alt="Na'vi hands and feet (4 digits on each) counting in base eight from 1-20"
                 className='center-item'
-                style={{ width: '50%', height: 'auto' }}
+                style={{ width: '50%', height: 'auto', paddingBottom: '2%' }}
             >
             </img>
         </div>

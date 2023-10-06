@@ -19,21 +19,20 @@ function VehicleLicensePlates() {
             }
     }
 
-    return <div className='real-world-use-container'>
-        <h2 className='statement-margins underline'>
+    return <div className='real-world-use-container' style={{ marginLeft: '2%', marginRight: '2%' }}>
+        <h2 className='underline'>
             <strong>
                 Vehicle License Plates
             </strong>
         </h2>
-        <p className='statement-margins'>
+        <p>
             Vehicle license plates use the hexatridecimal (base 36) system. Using characters 0-9 and uppercase A-Z provides a compact representation that can easily fit on a number plate, dashboard, door frame, or engine block. Because of its compactness and its use of alphanumeric characters, it is an easier system to convey and understand for humans, compared to a number system with fewer characters like quaternary (base 4), so fits this application well. Added to that, using a number system with a larger character set reduces the likelihood of duplication, as the vehicle license plates are intended to be globally unique.
         </p>
-        <p className='statement-margins'>
+        <p>
             Imagine trying to quickly communicate the number plates below and the importance of using the correct number system for the application becomes apparent.
         </p>
         <div
         className="row align-contents-center number-base-section-margins"
-        style={{ marginLeft: '2%', marginRight: '2%' }}
         >
             <div
             className='drift-in-image-container real-world-use-example rounded-box clickable'

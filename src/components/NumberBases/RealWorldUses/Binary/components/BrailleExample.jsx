@@ -5,6 +5,7 @@ import codeInBraille from '../../../../../assets/codeInBraille.png';
 function BrailleExample () {
     return <div
     className="row align-contents-center number-base-section-margins real-world-use-example rounded-box"
+    style={{ marginLeft: '2%', marginRight: '2%' }}
 >
 
     <p className='text-align-center' style={{ padding: '2%' }}>
@@ -39,19 +40,19 @@ function BrailleExample () {
         </div>
         <div
             id="math-branch-container-two"
-            className="col-sm text-align-center"
+            className="col-sm"
             style={{ display: 'grid', placeItems: 'center' }}
         >
-            <div className='center-item rounded-box statement-margins ' style={{ backgroundColor: 'white', borderWidth: '1px' }}>
-                <p style={{ marginTop: '4%', marginBottom: '4%' }}>This is the word 'code' in Braille</p>
+            <div className='center-item rounded-box' style={{ backgroundColor: 'white', borderWidth: '1px', padding: '2%' }}>
+                <p style={{ marginTop: '4%', marginBottom: '4%' }} className='text-align-center'>This is the word 'code' in Braille.</p>
                 <img src={codeInBraille} style={{ width: '70%', height: 'auto' }} className='center-item'>
                 </img>
-                <p style={{ marginTop: '4%', marginBottom: '4%' }}>Read in the numbered way to the left, we can translate the characters to binary: </p>
-                <p style={{ marginTop: '4%', marginBottom: '4%' }}><strong>100100  101010  100110  100010</strong></p>
-                <p style={{ marginTop: '4%', marginBottom: '4%' }}>Here, we have a four 6-bit encoded messages, with each message requiring 6 bits to contain its unit of information.</p>
+                <p className='statement-margins' style={{ marginTop: '4%', marginBottom: '4%' }}>Read in the numbered way to the left, we can translate the characters to binary: </p>
+                <p style={{ marginTop: '4%', marginBottom: '4%' }} className='text-align-center'><strong>100100  101010  100110  100010</strong></p>
+                <p className='statement-margins' style={{ marginTop: '4%', marginBottom: '4%' }}>Here, we have a four 6 bit encoded messages, with each message requiring 6 bits to contain its unit of information.</p>
             </div>
         </div>
-        <p className='statement-margins text-align-center' style={{ marginTop: '4%' }}>The key to note here is the meaning of a bit or collection of bits (also called a byte) is always understood contextually. 1s and 0s in the first example meant a bakery was open or closed and ultimately whether someone would get bread or not. In this example, the 1s and 0s correspond to the a dot in a Braille character being raised or not. The Braille alphabet is an already established context for this 1s and 0s representation.</p>
+        <p className='text-align-center' style={{ marginTop: '4%' }}>The key to note here is the meaning of a bit or collection of bits (also called a byte) is always understood contextually. 1s and 0s in the first example meant a bakery was open or closed and ultimately whether someone would get bread or not. In this example, the 1s and 0s correspond to the a dot in a Braille character being raised or not and what character is being represented. The Braille alphabet is an already established context for this 1s and 0s representation.</p>
     </div>
 </div>
 }

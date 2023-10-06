@@ -2,19 +2,19 @@ import tealBakeryOpenOrClosed from '../../../../../assets/tealBakeryOpenOrClosed
 import tealAndRedBakeries from '../../../../../assets/tealAndRedBakeries.png';
 
 function BakeryExample () {
-    return <div className='real-world-use-container'>
-        <h2 className='statement-margins underline'>
+    return <div className='real-world-use-container' style={{ marginLeft: '2%', marginRight: '2%' }}>
+        <h2 className='underline'>
             <strong>
                 Communication with Computers and an Introduction to Binary
             </strong>
         </h2>
-        <p className='statement-margins'>
+        <p>
             When it comes down to it, every iteraction with a computer ends up in binary format. It's the only languge they understand. The binary system as its name would suggest consists of two characters, 0 and 1. These are called binary digits. In the late 1940s, American mathematician John Wilder Tukey realised the words binary and digit were likely to become more widely used as computers were being established and decided to coin a shorter term. He considered bigit and binit, but ultimately settled on bit.
         </p>
-        <p className='statement-margins'>
+        <p>
             So, what is a bit? Well in its simplest form it is a &apos;Yes&apos; or a &apos;No&apos;. A more rounded answer would be to say bits are the building blocks of computed information. A bit is the smallest amount of information possible. Any less than a bit would be no information at all. Bits or binary digits bridge the gap between arithmetic and electricity, software and hardware, and ultimately humans and computers. So they're pretty important.
         </p>
-        <p className='statement-margins'>
+        <p>
             Take a look at some examples below to start getting to grips with binary data and its vital role in computing information.
         </p>
         <div
@@ -42,7 +42,7 @@ function BakeryExample () {
                 </div>
             </div>
         </div>
-        <p className='text-align-center statement-margins'>
+        <p className='text-align-center'>
             <strong>
                 This is an example of a 1 bit encoded message, as it only takes 1 bit to contain a message. With 1 bit encoding there are 2 possibilities (1 and 0) for each unit of information.
             </strong>
@@ -99,7 +99,20 @@ function BakeryExample () {
                             marginBottom: '8%',
                         }}>
                         <p>
-                            This an example of a 2 bit encoding, where it takes 2 bits to convey a message. With 2 bit binary encoding there are 4 possibilities. The formula to calculate possibilities is: number different digits to choose from ** number of characters in the complete unit. As the number system is binary, there are only 2 characters to choose from
+                            This an example of a 2 bit encoding, where it takes 2 bits to convey the message. With 2 bit binary encoding there are 4 possibilities. The formula to calculate possibilities is: 
+                        </p>
+                        <p style={{ fontSize: '1.4rem' }}>
+                            <strong>
+                                number of characters in the system ⁿᵘᵐᵇᵉʳ ᵒᶠ ᵇᶦᵗˢ
+                            </strong>
+                        </p>
+                        <p>
+                            Here we are using the binary system which has 2 characters, 0 and 1 and the message is 2 bits. So the formaula is:
+                        </p>
+                        <p style={{ fontSize: '1.4rem' }}>
+                            <strong>
+                                2 ²
+                            </strong>
                         </p>
                     </div>
                 </div>

@@ -34,16 +34,16 @@ function ColourRepresentation(params) {
     };
 
 
-    return <div className='real-world-use-container'>
-        <h2 className='statement-margins underline'>
+    return <div className='real-world-use-container' style={{ marginLeft: '2%', marginRight: '2%' }}>
+        <h2 className='underline'>
             <strong>
                 Colour Representation in Programming
             </strong>
         </h2>
-        <p className='statement-margins'>
+        <p>
             Hexadecimal (base 16) is used for colour representation in computer programming. Hexadecimal is more compatible with this application than binary for example, because it provides a more compact representation, with each hexadecimal digit representing four binary digits - '1101' in binary is 'D' in hexadecimal.
         </p>
-        <p className='statement-margins'>
+        <p>
             As you can see below, it&apos;s a much more human readable system than binary and therefore is less error prone.
         </p>
         <div className="row align-contents-center number-base-section-margins real-world-use-example rounded-box">

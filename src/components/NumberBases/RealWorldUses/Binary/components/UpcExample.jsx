@@ -7,7 +7,7 @@ function UpcExample(params) {
     return (
     <div
     className='row align-contents-center number-base-section-margins real-world-use-example rounded-box'
-    style={{ paddingLeft: '3%', paddingRight: '3%' }}
+    style={{ paddingLeft: '3%', paddingRight: '3%', marginLeft: '2%', marginRight: '2%' }}
     >
         <div
         id="math-branches-container"
@@ -20,7 +20,7 @@ function UpcExample(params) {
             style={{ display: 'grid', placeItems: 'center' }}
             >
                 <p>
-                    Universal Product Codes (UPCs) or bar codes are used to identify products and allow tracking of products in the retail and logistics industries. They provide a machine readable representation of a unique identification number associated with a product and are on just about everything you buy.
+                    Universal Product Codes (UPCs) or barcodes are used to identify products and allow tracking of products in the retail and logistics industries. They provide a machine readable representation of a unique identification number associated with a product and are on just about everything you buy.
                 </p>
             </div>
             <div
@@ -34,7 +34,7 @@ function UpcExample(params) {
             </div>
         </div>
         <p style={{ margin: '2%' }}>
-            Taking a slice of the above code let's have a closer look at how it contains information. As the computer scans from left to right it assigns the first black bar as a 1, a 0 to the equally wide gap next to it. The remaining bars and gaps can be a width of the first bit in the sequence, or two, three, or four times the width of it. They are what they are assigned is dependent on their comparative width.
+            Taking a slice of the above code let's have a closer look at how it contains information. As the computer scans from left to right it assigns the first black bar as a 1, a 0 to the equally wide gap next to it and a 1 to the proceeding black bar. The remaining bars and gaps can be the width of the first bit in the sequence, or two, three, or four times the width of it. What they are assigned is dependent on their comparative width.
         </p>
         <div className='rounded-box' style={{ backgroundColor: 'white', borderWidth: '1px', padding: '1%' }}>
             <img src={nutellaSlice2} className='center-item'></img>
@@ -52,7 +52,7 @@ function UpcExample(params) {
             className="col-sm text-align-center"
             >
         <div className='rounded-box' style={{ backgroundColor: 'white', width: '100%', borderWidth: '1px' }}>
-                    <p className='statement-margins' style={{ marginTop: '2%', width: 'fit-content' }}>We can group the bits as follows:</p>
+                    <p style={{ marginTop: '2%', marginLeft: '2%', width: 'fit-content' }}>We can group the bits as follows:</p>
                     <img
                     src={upcBitGrouping}
                     style={{ width: '80%', padding: '2%'}}></img>
@@ -124,22 +124,22 @@ function UpcExample(params) {
             className="col-sm text-align-center"
             style={{ display: 'grid', placeItems: 'center' }}
             >
-                <div className='statement-margins rounded-box' style={{ backgroundColor: 'white', borderWidth: '1px', textAlign: 'left' }}>
-                <div style={{ padding: '2%' }}
+                <div className='rounded-box' style={{ backgroundColor: 'white', borderWidth: '1px', textAlign: 'left' }}>
+                <div style={{ padding: '4%' }}
                     >
-                <p> * The first 3 bits are always 101. They help orient the computer scanner. Using the first 101, the scanner knows the baseline 1 bit width to measure the other bars and gaps against. This means barcodes can be different sizes to suit the different size packaging they will be printed on.
+                <p> * The first 3 bits are always 101. They help orientate the computer scanner. Using the first 101, the scanner knows the baseline 1 bit width to measure the other bars and gaps against. This means barcodes can be different sizes to suit the different size packaging they will be printed on.
         </p>
         <p>
-            * Then, we look at the next 42 bits, which are split into six 7 bit groups each representing a digit of the UPC.
+            * Then, we look at the next 42 bits, which are split into six 7 bit groups, each representing a digit of the UPC.
         </p>
         <p>
-        * Next, there is a 5 bit centre guard pattern which is always 01010. This is a built in error check and is one of the precautions taken against tampered with or badly printed UPCs. If the computer scanner doesn’t find the centre guard pattern where its supposed to be it won’t accept the code is a valid UPC.
+        * Next, there is a 5 bit centre guard pattern which is always 01010. This is a built in error check and is one of the precautions taken against tampered with or badly printed UPCs. If the computer scanner doesn't find the centre guard pattern where its supposed to be, it won’t accept the code is a valid UPC.
         </p>
         <p>
-            * The centre guard pattern is followed by another 42 bits, again split into 6 7 bit groups, each representing a UPC digit.
+            * The centre guard pattern is followed by another 42 bits, again split into six 7 bit groups, each representing a UPC digit.
         </p>
         <p>
-            * Lastly the code contains a right hand guard pattern, which allows the code to be scanned right to left as well as left to right.
+            * Lastly, the code contains a right hand guard pattern, which allows the code to be scanned right to left as well as left to right.
         </p>
         </div>
                 </div>
@@ -154,15 +154,15 @@ function UpcExample(params) {
             id="math-branch-container-one"
             className="col-sm text-align-center"
             >
-                <div className='statement-margins rounded-box' style={{ backgroundColor: 'white', borderWidth: '1px', textAlign: 'left', padding: '2%' }}>
+                <div className='rounded-box' style={{ backgroundColor: 'white', borderWidth: '1px', textAlign: 'left', padding: '2%' }}>
                     <div style={{ padding: '2%' }}
                     >
                         <p>
-                        Using the translation table to the left, we can translate the binary to the UPC which is 
+                        Using the translation table to the above, we can translate the binary representation of the barcode, to the UPC number which is 
                         <strong> 0 09800 89500 7</strong>.
                     </p>
                     <p>
-                        UPCs are further broken down into: 
+                        This can be further broken down into: 
                     </p>
                     <p>
                         <strong>0</strong> -  the UPC number system (Standard UPC)
@@ -189,9 +189,9 @@ function UpcExample(params) {
             </div>
 
         </div>
-        <div className='statement-margins' style={{ textAlign: 'left', padding: '2%' }}>
+        <div style={{ textAlign: 'left', padding: '2%' }}>
                     <p>Again, we had an established system, to group, translate and then interpret the meaning of each
-group to the four pieces of information above to give
+group to the four pieces of information above and give
 the translated numbers their meaning. 
 <p/>
 Number systems are just coded message. They include

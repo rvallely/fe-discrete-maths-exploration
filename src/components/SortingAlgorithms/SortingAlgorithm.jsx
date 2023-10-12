@@ -198,8 +198,12 @@ function SortingAlgorithm (
                                                 tabIndex={0}
                                                 title="Copy"
                                                 className="bi bi-back"
-                                                onClick={() => navigator.clipboard.writeText(returnedApiData.sortedList)}
-                                                onKeyUp={() => navigator.clipboard.writeText(returnedApiData.sortedList)}
+                                                onClick={
+                                                    () => navigator.clipboard.writeText(returnedApiData.sortedList)
+                                                }
+                                                onKeyUp={
+                                                    () => navigator.clipboard.writeText(returnedApiData.sortedList)
+                                                }
                                                 style={{ cursor: 'grabbing' }}
                                             />
                                         </span>
@@ -244,8 +248,12 @@ function SortingAlgorithm (
                                             tabIndex={0}
                                             title="Copy"
                                             className="bi bi-back"
-                                            onClick={() => navigator.clipboard.writeText(returnedApiData.executionTimeMs)}
-                                            onKeyUp={() => navigator.clipboard.writeText(returnedApiData.executionTimeMs)}
+                                            onClick={
+                                                () => navigator.clipboard.writeText(returnedApiData.executionTimeMs)
+                                            }
+                                            onKeyUp={
+                                                () => navigator.clipboard.writeText(returnedApiData.executionTimeMs)
+                                            }
                                             style={{ cursor: 'grabbing' }}
                                         />
                                     </span>

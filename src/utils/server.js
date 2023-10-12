@@ -1,8 +1,8 @@
 import axios from 'axios';
-import REACT_APP_ENV from '../env';
+import { REACT_APP_ENV, REACT_APP_SERVER_URL } from '../env';
 
 const discreteMathsServer = axios.create({
-    baseURL: REACT_APP_ENV === 'prod' ? 'https://discrete-maths-exploration.herokuapp.com' : 'http://localhost:9090/',
+    baseURL: REACT_APP_ENV === 'prod' ? REACT_APP_SERVER_URL : 'http://localhost:9090/',
     headers: { 'Access-Control-Allow-Origin': '*' }
 });
 

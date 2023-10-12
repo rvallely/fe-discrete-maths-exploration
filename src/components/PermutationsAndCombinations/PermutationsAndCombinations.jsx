@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PermutationsAndCombinations() {
-  return <p>PermutationsAndCombinations</p>;
+function PermutationsAndCombinations () {
+    return <p>PermutationsAndCombinations</p>;
 }
 export default PermutationsAndCombinations;

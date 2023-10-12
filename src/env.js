@@ -1,5 +1,5 @@
-const ENV = process.env.ENV || 'dev';
+const REACT_APP_ENV = process.env.REACT_APP_ENV || 'dev';
 
 export default {
-  ENV,
+    REACT_APP_ENV
 };

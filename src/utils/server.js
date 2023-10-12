@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+console.log(process.env.REACT_APP_ENV, '<<< process.env.REACT_APP_ENV');
+
 const discreteMathsServer = axios.create({
     baseURL: process.env.REACT_APP_ENV === 'prod' ? process.env.REACT_APP_SERVER_URL : 'http://localhost:9090/',
     headers: { 'Access-Control-Allow-Origin': '*' }

@@ -249,9 +249,9 @@ img {
 
 .align-contents-center {
   display: flex;
-  align-items: center; /* Vertical alignment */
-  justify-content: center; /* Horizontal alignment */
-  height: 100%; /* Ensure the container takes up the full height */
+  align-items: center; 
+  justify-content: center;
+  height: 100%; 
 }
 .text-align-center {
   text-align: center;

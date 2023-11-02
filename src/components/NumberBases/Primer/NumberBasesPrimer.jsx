@@ -212,7 +212,7 @@ function NumberBasesPrimer () {
                     <div className='mt-4 mb-4' style={{ marginLeft: '1%', marginRight: '1%' }}>
                         {table || ''}
                     </div>
-                    <div className="mt-4 mb-0 text-align-center">
+                    <div className="mt-4 mb-4 text-align-center">
                         <button
                             type="button"
                             onClick={resetForm}
